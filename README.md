@@ -124,7 +124,7 @@ Here are the features of the OpenGL C Engine:
 	This makes it more easier for me and I don't have to include the OpenGL headers and basically just get done just like that.
 	
     Written in Pure C89:
-	No complicated shit, quite basic and should be very easy to port, might even work in C++...
+	No complicated stuff, quite basic and should be very easy to port, might even work in C++...
 
 
 
