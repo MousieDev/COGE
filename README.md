@@ -112,7 +112,12 @@ Here are the features of the OpenGL C Engine:
 	This is basically inheritance in C without OOP
 
 	This makes it more easier for me and I don't have to include the OpenGL headers and basically just get done just like that.
-	
+
+    GitHub:
+	VERSION CONTROL
+	Contribution from other people
+	You guys can finally see the engine's progress
+
     Written in Pure C89:
 	No complicated stuff, quite basic and should be very easy to port, might even work in C++...
 
@@ -158,11 +163,6 @@ Onto the features I want to implement:
 
     Abstraction:
 	Basically anything that can be simplified further and just makes the life of the developer easier 
-
-    GitHub:
-	VERSION CONTROL
-	Contribution from other people
-	You guys can finally see the engine's progress
 
     Comments:
 	Maybe contributes to the documentation when working with the functions..? Like when you hover over a function it shows the function description so something like that...	
