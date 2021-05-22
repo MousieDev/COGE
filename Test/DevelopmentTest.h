@@ -23,8 +23,6 @@ float movementVec[4] = {
     0, 0, 0, 0
 };
 
-// int movementVecLoc;
-
 void Init() {
     window = WindowInit(640, 480, "Dev Testing");
     shaderID = LS("Resources/Shaders/vertex_core_one.glsl", "Resources/Shaders/fragment_core_one.glsl");
