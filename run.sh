@@ -1,5 +1,12 @@
 appFile=./app
 libGLFW=./Libs/libglfw3.a
+Lib=./Libs
+
+if test -f "$Libs"; then
+    echo
+else
+    mkdir Libs
+fi
 
 if test -f "$libGLFW"; then
     echo
