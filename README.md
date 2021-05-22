@@ -12,8 +12,6 @@ Here are the features of the OpenGL C Engine:
 	Abstracted so now it works very similar to the OOP way I did in C++ but instead uses structs and is more centered to the struct
 
     OOP Without Classes:
-	*Show picture of C++ Class to C Header*
-
 	Think without the class...
 	So.. the class character in C++ would look like:
    
@@ -59,10 +57,6 @@ Here are the features of the OpenGL C Engine:
 	    // And I think you get the idea...
 
 
-	Now for a proper example for the Engine:
-	    Cherno : IndexBuffer.h & IndexBuffer.cpp
-	    C      : IndexBuffer.h
-
     Shader Loading & Uniforms:
 	C File API, credits to: https://github.com/templalizer1284/cshader & Uniforms are set using the glUniform... functions
 
@@ -78,10 +72,6 @@ Here are the features of the OpenGL C Engine:
 	Keyboard
 	Mouse } :
 		    Basically just the classes written by Michael Grieco in his OpenGL series but without the classes and more simplified and easier to use in my opinion.
-
-		    Compare
-
-    *Show Pictures of Everything*
 
     Little Abstraction:
 	Still pretty bare-bones Engine
@@ -181,7 +171,7 @@ Onto the features I want to implement:
 	HTML, CSS, JS Docs... Would be very interesting to see as I can work on web development skills :DDD
 
     Ninja Build System:
-	According to MousieDev, this thing is very very fast and maybe even better than Make... ¬Ø\_(„ÉÑ)_/¬Ø
+	According to MousieDev, this thing is very very fast and maybe even better than Make...
 	
     Vulkan, GL ES:
 	Support for other graphical APIs
