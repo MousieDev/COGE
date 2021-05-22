@@ -13,6 +13,3 @@ LDFLAGS += -lglfw3
 app: $(OBJECTS)
 	$(CC) $(FILES) $(CFLAGS) $(LDFLAGS) $(FRAMEWORKS) -o app
 
-glTest: $(OBJECTS)
-	$(CC) glTesting/glTest.c Data/GLFW/*.c $(LDFLAGS) $(FRAMEWORKS) -o glTest
-
