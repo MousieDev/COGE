@@ -190,7 +190,7 @@ Credits to:
     MousieDev for all the tips and helping me with the Engine
 
 I don't really know what to name this engine but for now I might just call it:
-    cOOPengine
+    cOOPgraphicsEngine
 
 Due to the fact that it uses structs and very OOP-like... methods
 
