@@ -1,9 +1,10 @@
 A Simple Engine in its very first stages of becoming a, Game Engine or just a framework for making games using OpenGL.
 
 Here are the features of the OpenGL C Engine:
+
     OpenGL 4.1:
 	Modern OpenGL and makes my life way easier, like a lot but still does not have access to certain functions
-
+	
     Header-Only Files:
 	VBO, VAO, IBO..etc.. don't really have .c files and just one header file which contains all the necessary functions to make it easier to manage the files
 
@@ -128,6 +129,7 @@ Here are the features of the OpenGL C Engine:
 
 
 Onto the features I want to implement:
+
     Batch Renderer:
 	Abstraction
 	Adding & Removing
@@ -193,6 +195,7 @@ Onto the features I want to implement:
 
 
 Credits to:
+
     https://github.com/templalizer1284/cshader for Shader Loading
     MousieDev for all the tips and helping me with the Engine
 
