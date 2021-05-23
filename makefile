@@ -9,10 +9,12 @@ FILES = Main.c Data/*.c Data/GLAD/*.c Data/STB/*.c
 LDFLAGS += -LLibs
 LDFLAGS += -lglfw3
 
+LINUX = -lm -ldl -lpthread
+
 # LD_LIBRARY_PATH = $(currentdir)/Libs
 app: 
 	$(CC) $(FILES) $(CFLAGS) $(LDFLAGS) $(FRAMEWORKS) -o app
 
 linux:
-	$(CC) $(FILES) $(CFLAGS) $(LDFLAGS) -o app
+	$(CC) $(FILES) $(CFLAGS) $(LINUX) $(LDFLAGS) -o app
 

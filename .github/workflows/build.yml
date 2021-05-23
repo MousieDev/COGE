@@ -27,5 +27,5 @@ jobs:
             run: sudo apt-get install -y libxi-dev
 
           - name: run
-            run: bash run.sh
+            run: bash run-linux.sh
 
