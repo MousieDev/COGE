@@ -40,7 +40,6 @@ unsigned int LS(const char * vsFileName, const char * fsFileName) {
     vsCode[i] = 0;
     fclose(vs);
 
-
     i = 0;
     while (1) {
 
