@@ -28,9 +28,12 @@ fi
 
 if test -f "$appFile"; then
     rm app
+
+else 
+    echo Compiling...
 fi
 
 export DYLD_LIBRARY_PATH=Libs
 
-make
+make app
 ./app
