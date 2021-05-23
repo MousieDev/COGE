@@ -1,3 +1,5 @@
+pwd
+
 appFile=./app
 libGLFW=./Libs/libglfw3.a
 Lib=./Libs
