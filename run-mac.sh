@@ -35,4 +35,4 @@ else
 fi
 
 export DYLD_LIBRARY_PATH=Libs
-make  
+make mac 
