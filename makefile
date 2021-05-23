@@ -13,3 +13,6 @@ LDFLAGS += -lglfw3
 app: 
 	$(CC) $(FILES) $(CFLAGS) $(LDFLAGS) $(FRAMEWORKS) -o app
 
+linux:
+	$(CC) $(FILES) $(CFLAGS) $(LDFLAGS) -o app
+
