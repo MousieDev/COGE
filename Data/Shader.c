@@ -108,6 +108,11 @@ unsigned int LS(const char * vsFileName, const char * fsFileName) {
     glDeleteShader(vsID);
     glDeleteShader(fsID);
 
+
+    free(vsCode);
+    free(fsCode);
+
+
     return programID;
 }
 
