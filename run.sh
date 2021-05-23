@@ -23,6 +23,7 @@ else
     mv libglfw3.a ../../../
     cd ../../..
     rm -rf GLFW
+    cd ..
 fi
 
 
