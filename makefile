@@ -9,7 +9,7 @@ FILES = Main.c Data/*.c Data/GLAD/*.c Data/STB/*.c
 LDFLAGS += -LLibs
 LDFLAGS += -lglfw3
 
-LINUX = -lm -ldl -lpthread
+LINUX = -Wl,--no-as-needed -lm -ldl -lpthread
 
 # LD_LIBRARY_PATH = $(currentdir)/Libs
 app: 
