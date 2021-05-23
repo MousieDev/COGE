@@ -17,3 +17,9 @@ jobs:
           - name: Compile
             run: bash run-linux.sh
 
+      runs-on: macos-latest
+      steps:
+          - uses: actions/checkout@v2
+          - name: Compile
+            run: bash run-mac.sh
+
