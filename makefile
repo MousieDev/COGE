@@ -10,6 +10,6 @@ LDFLAGS += -LLibs
 LDFLAGS += -lglfw3
 
 # LD_LIBRARY_PATH = $(currentdir)/Libs
-app: $(OBJECTS)
+app: 
 	$(CC) $(FILES) $(CFLAGS) $(LDFLAGS) $(FRAMEWORKS) -o app
 
