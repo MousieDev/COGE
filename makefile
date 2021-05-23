@@ -12,7 +12,7 @@ LDFLAGS += -lglfw3
 LINUX = -Wl,--no-as-needed -lm -ldl -lpthread
 
 # LD_LIBRARY_PATH = $(currentdir)/Libs
-app: 
+mac: 
 	$(CC) $(FILES) $(CFLAGS) $(LDFLAGS) $(FRAMEWORKS) -o app
 
 linux:
