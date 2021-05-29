@@ -1,3 +1,4 @@
+### About the Engine
 A Simple Engine in its very first stages of becoming a, Game Engine or just a framework for making games using OpenGL.
 
 Here are the features of the OpenGL C Engine:
@@ -184,7 +185,7 @@ Onto the features I want to implement:
 	Multi-Platform Compilation?
 
 
-Credits to:
+ ### Credits to:
 
     https://github.com/templalizer1284/cshader for Shader Loading
     MousieDev for all the tips and helping me with the Engine
@@ -193,4 +194,20 @@ I don't really know what to name this engine but for now I might just call it:
     cOOPgraphicsEngine or COGE
 
 Due to the fact that it uses structs and very OOP-like... methods
+
+### Getting the Engine
+	- Mac:
+		run:
+			bash run-mac.sh
+			./app
+			
+	- Linux (Ubuntu Only :/):
+		run:
+			bash run-linux.sh
+			./app
+			
+	- Windows:
+		run:
+			Coming soon...
+
 
