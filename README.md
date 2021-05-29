@@ -2,16 +2,16 @@ A Simple Engine in its very first stages of becoming a, Game Engine or just a fr
 
 Here are the features of the OpenGL C Engine:
 
-    OpenGL 4.1:
+ ### OpenGL 4.1:
 	Modern OpenGL and makes my life way easier, like a lot but still does not have access to certain functions
 	
-    Header-Only Files:
+ ### Header-Only Files:
 	VBO, VAO, IBO..etc.. don't really have .c files and just one header file which contains all the necessary functions to make it easier to manage the files
 
-    VAOs, IBOs, VBOs:
+ ### VAOs, IBOs, VBOs:
 	Abstracted so now it works very similar to the OOP way I did in C++ but instead uses structs and is more centered to the struct
 
-    OOP Without Classes:
+ ### OOP Without Classes:
 	Think without the class...
 	So.. the class character in C++ would look like:
    
@@ -57,17 +57,17 @@ Here are the features of the OpenGL C Engine:
 	    // And I think you get the idea...
 
 
-    Shader Loading & Uniforms:
+ ### Shader Loading & Uniforms:
 	C File API, credits to: https://github.com/templalizer1284/cshader & Uniforms are set using the glUniform... functions
 
-    Textures:
+ ### Textures:
 	Loading:
 	    Just good ol' stb_image.h doing the work for me
 
 	Binding:
 	    Just takes in which slot to bind to and then I'm done
 
-    Inputs:
+ ### Inputs:
 	{ Joysticks
 	Keyboard
 	Mouse } :
@@ -113,30 +113,30 @@ Here are the features of the OpenGL C Engine:
 
 	This makes it more easier for me and I don't have to include the OpenGL headers and basically just get done just like that.
 
-    GitHub:
+ ### GitHub:
 	VERSION CONTROL
 	Contribution from other people
 	You guys can finally see the engine's progress
 
-    Written in Pure C89:
+ ### Written in Pure C89:
 	No complicated stuff, quite basic and should be very easy to port, might even work in C++...
 
 
 
 Onto the features I want to implement:
 
-    Batch Renderer:
+ ### Batch Renderer:
 	Abstraction
 	Adding & Removing
 
-    Test Menu:
+ ### Test Menu:
 	Displays all the tests in the Tests folder
 
-    Nuklear Support:
+ ### Nuklear Support:
 	Basically ImGui but for C OpenGL
 
-    3D
-    Maths Engine:
+ ### 3D
+ ### Maths Engine:
 	Matrices:
 	    Matrix, 4x4, 3x3:
 		Quite important for transformations and I need to implement project matrix so this is essential
@@ -152,35 +152,35 @@ Onto the features I want to implement:
 	    Anything related to maths...for example finding the distance between 2 points..
 
 	
-    Engine-Like Functions:
+ ### Engine-Like Functions:
 	Collision Detection..etc..
 
-    Debugging:
+ ### Debugging:
 	Make it easier to see variables at runtime or something...don't really know what to do here..:/
 
-    Organization:
+ ### Organization:
 	Headers that are being included could be put into more sub-directories, GLFW could be added to some folder valled vendor or something..
 
-    Abstraction:
+ ### Abstraction:
 	Basically anything that can be simplified further and just makes the life of the developer easier 
 
-    Comments:
+ ### Comments:
 	Maybe contributes to the documentation when working with the functions..? Like when you hover over a function it shows the function description so something like that...	
 
-    Documentation:
+ ### Documentation:
 	HTML, CSS, JS Docs... Would be very interesting to see as I can work on web development skills :DDD
 
-    Ninja Build System:
+ ### Ninja Build System:
 	According to MousieDev, this thing is very very fast and maybe even better than Make...
 	
-    Vulkan, GL ES:
+ ### Vulkan, GL ES:
 	Support for other graphical APIs
 	#if defines will be very useful
 
-    Web:
+ ### Web:
 	Build for web
 
-    Builds:
+ ### Builds:
 	Multi-Platform Compilation?
 
 
