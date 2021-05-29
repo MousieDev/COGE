@@ -1,4 +1,4 @@
-### About the Engine
+# About COGE
 A Simple Engine in its very first stages of becoming a, Game Engine or just a framework for making games using OpenGL.
 
 I didn't really know what to name this engine so I just call it:
@@ -129,7 +129,7 @@ Due to the fact that it uses structs and very OOP-like... methods
 
 
 
-# Onto the features I want to implement:
+# Features to be implemented in COGE:
 
  ### Batch Renderer:
 	Abstraction
@@ -189,7 +189,7 @@ Due to the fact that it uses structs and very OOP-like... methods
  ### Builds:
 	Multi-Platform Compilation?
 
-# Getting the Engine
+# Getting the COGE:
 	- Mac:
 		run:
 			bash run-mac.sh
