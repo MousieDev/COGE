@@ -1,9 +1,9 @@
 ### About the Engine
 A Simple Engine in its very first stages of becoming a, Game Engine or just a framework for making games using OpenGL.
 
-Here are the features of the OpenGL C Engine:
+### Here are the features of the OpenGL C Engine:
 
- ### OpenGL 4.1:
+ - OpenGL 4.1:
 	Modern OpenGL and makes my life way easier, like a lot but still does not have access to certain functions
 	
  ### Header-Only Files:
