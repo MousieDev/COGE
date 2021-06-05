@@ -130,6 +130,8 @@ Due to the fact that it uses structs and very OOP-like... methods
  ### Logging Library:
 	Prints messages, warnings, and errors easily but does give off some warnings and it uses ANSI colors and makes the output colored
 
+ ### Test-Like Class [Not Actual Class But Just Functions]:
+	Test-Like Class header file for making rapid tests
 
 # Features to be implemented in COGE:
 
