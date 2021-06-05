@@ -19,6 +19,7 @@
 #include "../Data/Mouse.h"
 #include "../Data/Joystick.h"
 #include "../Data/Renderer.h"
+#include "../Data/cLogger/Log.h"
 
 GLFWwindow * window;
 unsigned int shaderID;

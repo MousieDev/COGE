@@ -74,11 +74,11 @@ void Init() {
     UpdateJoysticks();
 
     if (JoystickIsPresent()) {
-	printf("Joystick\n");
+	LogWarn("No Joystick\n");
     }
 
     else {
-	printf("No Joystick\n");
+	LogWarn("No Joystick\n");
     }
 
     uLocation = glGetUniformLocation(shaderID, "move");

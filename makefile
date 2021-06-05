@@ -4,7 +4,7 @@ FRAMEWORKS = -framework CoreFoundation -framework OpenGL -framework Cocoa -frame
 FLAGS = -std=c89 -march=native -mtune=native -Ofast -pipe -D _GLFW_COCOA=1
 CFLAGS += -IData
 
-FILES = Main.c Data/*.c Data/GLAD/*.c Data/STB/*.c
+FILES = Main.c Data/GLAD/*.c Data/STB/*.c
 
 LDFLAGS += -LLibs
 LDFLAGS += -lglfw3
