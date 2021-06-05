@@ -127,6 +127,8 @@ Due to the fact that it uses structs and very OOP-like... methods
  ### Written in Pure C89:
 	No complicated stuff, quite basic and should be very easy to port, might even work in C++...
 
+ ### Logging Library:
+	Prints messages, warnings, and errors easily but does give off some warnings and it uses ANSI colors and makes the output colored
 
 
 # Features to be implemented in COGE:
