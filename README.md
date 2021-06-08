@@ -79,13 +79,13 @@ Due to the fact that it uses structs and very OOP-like... methods
 	Mouse } :
 		    Basically just the classes written by Michael Grieco in his OpenGL series but without the classes and more simplified and easier to use in my opinion.
 
-    Little Abstraction:
+ ### ittle Abstraction:
 	Still pretty bare-bones Engine
 
-    Makefile/SH Script to Compile:
+ ### Makefile/SH Script to Compile:
 	Very easy to setup
 
-    Test Class:
+ ### Test Class:
 	GLFWwindow * window
 	Program Props:
 	    VBO, IBO, VAO = { 1, 1, 1 }:
