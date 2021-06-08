@@ -79,7 +79,7 @@ Due to the fact that it uses structs and very OOP-like... methods
 	Mouse } :
 		    Basically just the classes written by Michael Grieco in his OpenGL series but without the classes and more simplified and easier to use in my opinion.
 
- ### ittle Abstraction:
+ ### Little Abstraction:
 	Still pretty bare-bones Engine
 
  ### Makefile/SH Script to Compile:
