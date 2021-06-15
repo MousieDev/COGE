@@ -1,20 +1,33 @@
 name: C/C++ CI
 
-# runs-on: macos-latest
-
 on:
-  push:
-    branches: [ master ]
-  pull_request:
+    push:
+        branches: [ master ]
+pull_request:
     branches: [ master ]
 
 jobs:
-  build:
-      runs-on: windows-latest
-      steps:
-          - uses: actions/checkout@v2
-          
-          - name: Compile
-            run: run-windows.bat
+    build:
 
+        runs-on: ubuntu-20.04
+    steps:
+        - uses: actions/checkout@v2
+
+        - name: Compile
+          run: bash run-linux.sh
+
+    runs-on: macos-latest
+    steps:
+        - uses: actions/checkout@v2
+        - name: Compile
+          run: bash run-mac.sh
+
+    runs-on: windows-latest
+    steps:
+        - uses: actions/checkout@v2
+          # this runs vcvarsall for us, so we get the MSVC toolchain in PATH.
+        - uses: seanmiddleditch/gha-setup-vsdevenv@master
+
+        - name: Compile
+          run: .\run-windows.bat
 

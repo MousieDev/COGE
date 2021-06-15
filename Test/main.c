@@ -1,4 +1,4 @@
-#include "Test/DevelopmentTest.h"
+#include "./DevelopmentTest.h"
 
 // Currently working on automated build systems using Ninja
 // CMake compile for GLFW?
