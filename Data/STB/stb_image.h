@@ -6433,32 +6433,32 @@ static stbi_uc *stbi__gif_load_next(stbi__context *s, stbi__gif *g, int *comp, i
          dispose = 2; // if I don't have an image to revert back to, default to the old background
       }
 
-      if (dispose == 3) { // use previous graphic
+      if (dispose == 3) { /* use previous graphic */
          for (pi = 0; pi < pcount; ++pi) {
             if (g->history[pi]) {
                memcpy(&g->out[pi * 4], &two_back[pi * 4], 4); 
             }
          }
       } else if (dispose == 2) { 
-         // restore what was changed last frame to background before that frame; 
+         /* restore what was changed last frame to background before that frame; */
          for (pi = 0; pi < pcount; ++pi) {
             if (g->history[pi]) {
                memcpy(&g->out[pi * 4], &g->background[pi * 4], 4); 
             }
          }
       } else {
-         // This is a non-disposal case eithe way, so just 
+         /* This is a non-disposal case eithe way, so just 
          // leave the pixels as is, and they will become the new background
          // 1: do not dispose
-         // 0:  not specified.
+         // 0:  not specified. */
       }
 
-      // background is what out is after the undoing of the previou frame; 
+      /* background is what out is after the undoing of the previou frame; */
       memcpy(g->background, g->out, 4 * g->w * g->h); 
    }
 
-   // clear my history; 
-   memset(g->history, 0x00, g->w * g->h);        // pixels that were affected previous frame
+   /* clear my history;  */
+   memset(g->history, 0x00, g->w * g->h);        /* pixels that were affected previous frame */
 
    for (;;) {
       int tag = stbi__get8(s); 
@@ -6486,7 +6486,7 @@ static stbi_uc *stbi__gif_load_next(stbi__context *s, stbi__gif *g, int *comp, i
             g->lflags = stbi__get8(s);
 
             if (g->lflags & 0x40) {
-               g->step = 8 * g->line_size; // first interlaced spacing
+               g->step = 8 * g->line_size; /* first interlaced spacing */
                g->parse = 3;
             } else {
                g->step = g->line_size;
@@ -6504,13 +6504,13 @@ static stbi_uc *stbi__gif_load_next(stbi__context *s, stbi__gif *g, int *comp, i
             o = stbi__process_gif_raster(s, g);
             if (o == NULL) return NULL;
 
-            // if this was the first frame, 
+            /* if this was the first frame, */ 
             pcount = g->w * g->h; 
             if (first_frame && (g->bgindex > 0)) {
-               // if first frame, any pixel not drawn to gets the background color
+               /* if first frame, any pixel not drawn to gets the background color */
                for (pi = 0; pi < pcount; ++pi) {
                   if (g->history[pi] == 0) {
-                     g->pal[g->bgindex][3] = 255; // just in case it was made transparent, undo that; It will be reset next frame if need be; 
+                     g->pal[g->bgindex][3] = 255; /* just in case it was made transparent, undo that; It will be reset next frame if need be; */
                      memcpy(&g->out[pi * 4], &g->pal[g->bgindex], 4); 
                   }
                }
@@ -6519,17 +6519,17 @@ static stbi_uc *stbi__gif_load_next(stbi__context *s, stbi__gif *g, int *comp, i
             return o;
          }
 
-         case 0x21: // Comment Extension.
+         case 0x21: /* Comment Extension. */
          {
             int len;
             int ext = stbi__get8(s); 
-            if (ext == 0xF9) { // Graphic Control Extension.
+            if (ext == 0xF9) { /* Graphic Control Extension. */
                len = stbi__get8(s);
                if (len == 4) {
                   g->eflags = stbi__get8(s);
-                  g->delay = 10 * stbi__get16le(s); // delay - 1/100th of a second, saving as 1/1000ths.
+                  g->delay = 10 * stbi__get16le(s); /* delay - 1/100th of a second, saving as 1/1000ths. */
 
-                  // unset old transparent
+                  /* unset old transparent */
                   if (g->transparent >= 0) {
                      g->pal[g->transparent][3] = 255; 
                   } 
@@ -6539,7 +6539,7 @@ static stbi_uc *stbi__gif_load_next(stbi__context *s, stbi__gif *g, int *comp, i
                         g->pal[g->transparent][3] = 0; 
                      }
                   } else {
-                     // don't need transparent
+                     /* don't need transparent */
                      stbi__skip(s, 1); 
                      g->transparent = -1; 
                   }
@@ -6554,8 +6554,8 @@ static stbi_uc *stbi__gif_load_next(stbi__context *s, stbi__gif *g, int *comp, i
             break;
          }
 
-         case 0x3B: // gif stream termination code
-            return (stbi_uc *) s; // using '1' causes warning on some compilers
+         case 0x3B: /* gif stream termination code */
+            return (stbi_uc *) s; /* using '1' causes warning on some compilers */
 
          default:
             return stbi__errpuc("unknown code", "Corrupt GIF");
@@ -6579,7 +6579,7 @@ static void *stbi__load_gif_main(stbi__context *s, int **delays, int *x, int *y,
 
       do {
          u = stbi__gif_load_next(s, &g, comp, req_comp, two_back);
-         if (u == (stbi_uc *) s) u = 0;  // end of animated gif marker
+         if (u == (stbi_uc *) s) u = 0;  /* end of animated gif marker */
 
          if (u) {
             *x = g.w;
@@ -6609,12 +6609,12 @@ static void *stbi__load_gif_main(stbi__context *s, int **delays, int *x, int *y,
          }
       } while (u != 0); 
 
-      // free temp buffer; 
+      /* free temp buffer; */
       STBI_FREE(g.out); 
       STBI_FREE(g.history); 
       STBI_FREE(g.background); 
 
-      // do the final conversion after loading everything; 
+      /* do the final conversion after loading everything; */
       if (req_comp && req_comp != 4)
          out = stbi__convert_format(out, 4, req_comp, layers * g.w, g.h);
 
@@ -6633,18 +6633,18 @@ static void *stbi__gif_load(stbi__context *s, int *x, int *y, int *comp, int req
    STBI_NOTUSED(ri);
 
    u = stbi__gif_load_next(s, &g, comp, req_comp, 0);
-   if (u == (stbi_uc *) s) u = 0;  // end of animated gif marker
+   if (u == (stbi_uc *) s) u = 0;  /* end of animated gif marker */
    if (u) {
       *x = g.w;
       *y = g.h;
 
-      // moved conversion to after successful load so that the same
-      // can be done for multiple frames. 
+      /* moved conversion to after successful load so that the same
+      // can be done for multiple frames. */
       if (req_comp && req_comp != 4)
          u = stbi__convert_format(u, 4, req_comp, g.w, g.h);
    }
 
-   // free buffers needed for multiple frame loading; 
+   /* free buffers needed for multiple frame loading; */
    STBI_FREE(g.history);
    STBI_FREE(g.background); 
 
@@ -6657,9 +6657,9 @@ static int stbi__gif_info(stbi__context *s, int *x, int *y, int *comp)
 }
 #endif
 
-// *************************************************************************************************
+/*************************************************************************************************
 // Radiance RGBE HDR loader
-// originally by Nicolas Schulz
+// originally by Nicolas Schulz */
 #ifndef STBI_NO_HDR
 static int stbi__hdr_test_core(stbi__context *s, const char *signature)
 {
@@ -6693,7 +6693,7 @@ static char *stbi__hdr_gettoken(stbi__context *z, char *buffer)
    while (!stbi__at_eof(z) && c != '\n') {
       buffer[len++] = c;
       if (len == STBI__HDR_BUFLEN-1) {
-         // flush to end of line
+         /* flush to end of line */
          while (!stbi__at_eof(z) && stbi__get8(z) != '\n')
             ;
          break;
@@ -6709,7 +6709,7 @@ static void stbi__hdr_convert(float *output, stbi_uc *input, int req_comp)
 {
    if (input[3] != 0) {
       float f1;
-      // Exponent
+      /* Exponent */
       f1 = (float) ldexp(1.0f, input[3] - (int)(128 + 8));
       if (req_comp <= 2)
          output[0] = (input[0] + input[1] + input[2]) * f1 / 3;
@@ -6746,12 +6746,12 @@ static float *stbi__hdr_load(stbi__context *s, int *x, int *y, int *comp, int re
    const char *headerToken;
    STBI_NOTUSED(ri);
 
-   // Check identifier
+   /* Check identifier */
    headerToken = stbi__hdr_gettoken(s,buffer);
    if (strcmp(headerToken, "#?RADIANCE") != 0 && strcmp(headerToken, "#?RGBE") != 0)
       return stbi__errpf("not HDR", "Corrupt HDR image");
 
-   // Parse header
+   /* Parse header */
    for(;;) {
       token = stbi__hdr_gettoken(s,buffer);
       if (token[0] == 0) break;
@@ -6760,8 +6760,8 @@ static float *stbi__hdr_load(stbi__context *s, int *x, int *y, int *comp, int re
 
    if (!valid)    return stbi__errpf("unsupported format", "Unsupported HDR format");
 
-   // Parse width and height
-   // can't use sscanf() if we're not using stdio!
+   /* Parse width and height
+   // can't use sscanf() if we're not using stdio! */
    token = stbi__hdr_gettoken(s,buffer);
    if (strncmp(token, "-Y ", 3))  return stbi__errpf("unsupported data layout", "Unsupported HDR format");
    token += 3;
@@ -6780,15 +6780,15 @@ static float *stbi__hdr_load(stbi__context *s, int *x, int *y, int *comp, int re
    if (!stbi__mad4sizes_valid(width, height, req_comp, sizeof(float), 0))
       return stbi__errpf("too large", "HDR image is too large");
 
-   // Read data
+   /* Read data */
    hdr_data = (float *) stbi__malloc_mad4(width, height, req_comp, sizeof(float), 0);
    if (!hdr_data)
       return stbi__errpf("outofmem", "Out of memory");
 
-   // Load image data
-   // image data is stored as some number of sca
+   /* Load image data
+   // image data is stored as some number of sca */
    if (width < 8 || width >= 32768) {
-      // Read flat data
+      /* Read flat data */
       for (j=0; j < height; ++j) {
          for (i=0; i < width; ++i) {
             stbi_uc rgbe[4];
@@ -6798,7 +6798,7 @@ static float *stbi__hdr_load(stbi__context *s, int *x, int *y, int *comp, int re
          }
       }
    } else {
-      // Read RLE-encoded data
+      /* Read RLE-encoded data */
       scanline = NULL;
 
       for (j = 0; j < height; ++j) {
@@ -6806,8 +6806,8 @@ static float *stbi__hdr_load(stbi__context *s, int *x, int *y, int *comp, int re
          c2 = stbi__get8(s);
          len = stbi__get8(s);
          if (c1 != 2 || c2 != 2 || (len & 0x80)) {
-            // not run-length encoded, so we have to actually use THIS data as a decoded
-            // pixel (note this can't be a valid pixel--one of RGB must be >= 128)
+            /* not run-length encoded, so we have to actually use THIS data as a decoded
+            // pixel (note this can't be a valid pixel--one of RGB must be >= 128) */
             stbi_uc rgbe[4];
             rgbe[0] = (stbi_uc) c1;
             rgbe[1] = (stbi_uc) c2;
@@ -6817,7 +6817,7 @@ static float *stbi__hdr_load(stbi__context *s, int *x, int *y, int *comp, int re
             i = 1;
             j = 0;
             STBI_FREE(scanline);
-            goto main_decode_loop; // yes, this makes no sense
+            goto main_decode_loop; /* yes, this makes no sense */
          }
          len <<= 8;
          len |= stbi__get8(s);
@@ -6903,7 +6903,7 @@ static int stbi__hdr_info(stbi__context *s, int *x, int *y, int *comp)
    *comp = 3;
    return 1;
 }
-#endif // STBI_NO_HDR
+#endif /* STBI_NO_HDR */
 
 #ifndef STBI_NO_BMP
 static int stbi__bmp_info(stbi__context *s, int *x, int *y, int *comp)
@@ -7046,7 +7046,7 @@ static int stbi__pic_info(stbi__context *s, int *x, int *y, int *comp)
 }
 #endif
 
-// *************************************************************************************************
+/*************************************************************************************************
 // Portable Gray Map and Portable Pixel Map loader
 // by Ken Miller
 //
@@ -7056,7 +7056,7 @@ static int stbi__pic_info(stbi__context *s, int *x, int *y, int *comp)
 // Known limitations:
 //    Does not support comments in the header section
 //    Does not support ASCII image data (formats P2 and P3)
-//    Does not support 16-bit-per-channel
+//    Does not support 16-bit-per-channel */
 
 #ifndef STBI_NO_PNM
 
@@ -7093,7 +7093,7 @@ static void *stbi__pnm_load(stbi__context *s, int *x, int *y, int *comp, int req
 
    if (req_comp && req_comp != s->img_n) {
       out = stbi__convert_format(out, s->img_n, req_comp, s->img_x, s->img_y);
-      if (out == NULL) return out; // stbi__convert_format frees input on failure
+      if (out == NULL) return out; /* stbi__convert_format frees input on failure */
    }
    return out;
 }
@@ -7145,7 +7145,7 @@ static int      stbi__pnm_info(stbi__context *s, int *x, int *y, int *comp)
 
    stbi__rewind(s);
 
-   // Get identifier
+   /* Get identifier */
    p = (char) stbi__get8(s);
    t = (char) stbi__get8(s);
    if (p != 'P' || (t != '5' && t != '6')) {
@@ -7153,18 +7153,18 @@ static int      stbi__pnm_info(stbi__context *s, int *x, int *y, int *comp)
        return 0;
    }
 
-   *comp = (t == '6') ? 3 : 1;  // '5' is 1-component .pgm; '6' is 3-component .ppm
+   *comp = (t == '6') ? 3 : 1;  /* '5' is 1-component .pgm; '6' is 3-component .ppm */
 
    c = (char) stbi__get8(s);
    stbi__pnm_skip_whitespace(s, &c);
 
-   *x = stbi__pnm_getinteger(s, &c); // read width
+   *x = stbi__pnm_getinteger(s, &c); /* read width */
    stbi__pnm_skip_whitespace(s, &c);
 
-   *y = stbi__pnm_getinteger(s, &c); // read height
+   *y = stbi__pnm_getinteger(s, &c); /* read height */
    stbi__pnm_skip_whitespace(s, &c);
 
-   maxv = stbi__pnm_getinteger(s, &c);  // read max value
+   maxv = stbi__pnm_getinteger(s, &c);  /* read max value */
 
    if (maxv > 255)
       return stbi__err("max value > 255", "PPM image not 8-bit");
@@ -7270,7 +7270,7 @@ STBIDEF int stbi_is_16_bit_from_file(FILE *f)
    fseek(f,pos,SEEK_SET);
    return r;
 }
-#endif // !STBI_NO_STDIO
+#endif /* !STBI_NO_STDIO */
 
 STBIDEF int stbi_info_from_memory(stbi_uc const *buffer, int len, int *x, int *y, int *comp)
 {
@@ -7300,8 +7300,7 @@ STBIDEF int stbi_is_16_bit_from_callbacks(stbi_io_callbacks const *c, void *user
    return stbi__is_16_main(&s);
 }
 
-#endif // STB_IMAGE_IMPLEMENTATION
-
+#endif 
 /*
    revision history:
       2.20  (2019-02-07) support utf8 filenames in Windows; fix warnings and platform ifdefs 

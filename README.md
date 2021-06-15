@@ -124,8 +124,8 @@ Due to the fact that it uses structs and very OOP-like... methods
 	Contribution from other people
 	You guys can finally see the engine's progress
 
- ### Written in Pure C89:
-	No complicated stuff, quite basic and should be very easy to port, might even work in C++...
+ ### Written in C99:
+	No complicated stuff, quite basic and should be very easy to port, might even work in C++... Ended up switching to C99 because of certain complications.
 
  ### Logging Library:
 	Prints messages, warnings, and errors easily but does give off some warnings and it uses ANSI colors and makes the output colored
