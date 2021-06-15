@@ -5,8 +5,9 @@
 #include <stdio.h>
 
 #include "GLAD/gl.h"
+#include "cLogger/Log.h"
 
-// Credits to: https://github.com/templalizer1284/cshader
+/* Credits to: https://github.com/templalizer1284/cshader */
 
 
 unsigned int LS(const char * vsFileName, const char * fsFileName) {
@@ -17,7 +18,7 @@ unsigned int LS(const char * vsFileName, const char * fsFileName) {
     FILE * fs = fopen(fsFileName, "r");
 
     if (vs == NULL || fs == NULL) {
-	printf("One of the shaders is not loaded");
+	LogError("One of the shaders is not loaded", NULL);
     }
 
     fseek(vs, 0, SEEK_END);
@@ -78,7 +79,7 @@ unsigned int LS(const char * vsFileName, const char * fsFileName) {
     if (infoLogLength > 0) {
 	char errorMsg[infoLogLength + 1];
 	glGetShaderInfoLog(vsID, infoLogLength, NULL, &errorMsg[0]);
-	printf("%s\n", &errorMsg[0]);
+	LogError("%s", &errorMsg[0]);
     }
 
     glShaderSource(fsID, 1, &fsSource, &flength);
@@ -90,24 +91,22 @@ unsigned int LS(const char * vsFileName, const char * fsFileName) {
     if (infoLogLength > 0) {
 	char errorMsg[infoLogLength + 1];
 	glGetShaderInfoLog(fsID, infoLogLength, NULL, &errorMsg[0]);
-	printf("%s\n", &errorMsg[0]);
+	LogError("%s", &errorMsg[0]);
     }
 
 
-	// Link the program
     unsigned int programID = glCreateProgram();
     glAttachShader(programID, vsID);
     glAttachShader(programID, fsID);
     glLinkProgram(programID);
 
-	// Check the program
     glGetProgramiv(programID, GL_LINK_STATUS, &result);
     glGetProgramiv(programID, GL_INFO_LOG_LENGTH, &infoLogLength);
 
     if (infoLogLength > 0){
         char errorMsg[infoLogLength + 1];
         glGetProgramInfoLog(programID, infoLogLength, NULL, &errorMsg[0]);
-        printf("%s\n", &errorMsg[0]);
+        LogError("%s", &errorMsg[0]);
     }
 
 

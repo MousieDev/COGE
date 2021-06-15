@@ -2,6 +2,7 @@
 
 #include "STB/stb_image.h"
 #include "GLAD/gl.h"
+#include <string.h>
 
 typedef struct {
     unsigned int id;
@@ -16,7 +17,7 @@ void GenTexture(Texture * tex) {
     
     unsigned int color;
 
-    if (tex -> path != "") {
+    if (strcmp(tex -> path, "") != 0) {
 	tex -> buffer = stbi_load(tex -> path, &tex -> width, &tex -> height, &tex -> bpp, 4);
     }
 
@@ -32,7 +33,7 @@ void GenTexture(Texture * tex) {
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 
-    if (tex -> path != "") {
+    if (strcmp(tex -> path, "") != 0) {
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, tex -> width, tex -> height, 0, GL_RGBA, GL_UNSIGNED_BYTE, tex -> buffer);
     }
 

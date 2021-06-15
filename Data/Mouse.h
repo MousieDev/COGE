@@ -26,8 +26,8 @@ void InitMouse() {
     scrollDY = 0;
 
     firstMouse = 1;
-
-    for (int i = 0; i < GLFW_MOUSE_BUTTON_LAST + 1; i++) {
+    int i;
+    for (i = 0; i < GLFW_MOUSE_BUTTON_LAST + 1; i++) {
 	buttons[i] = 0;
 	buttonsChanged[i] = 0;
     }
@@ -115,7 +115,7 @@ int ButtonChanged(int button) {
 }
 
 int ButtonDown(int button) {
-    return buttons[button] && ButtonChanged(button); // here, 30:14, ep 11
+    return buttons[button] && ButtonChanged(button); 
 }
 
 int ButtonUp(int button) {

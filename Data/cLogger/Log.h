@@ -1,7 +1,5 @@
 #pragma once
 #include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
 
 #define DEFAULT       "\x1b[0m"
 
@@ -47,67 +45,35 @@
 // 	Pass in pointer
 // 	Pass in array
 
+#define LogInfo(msg, ...) \
+    printf("%s", GREEN); \
+    printf(msg, __VA_ARGS__); \
+    printf("%s", DEFAULT); \
+    printf("\n"); 
 
-void cConcatenate(char * msg, char * append, char * st) {
-    for (int i = 0; i < strlen(msg) + strlen(append) + 2; i++) {
-	st[i] = '\0';
-    }
+#define LogError(msg, ...) \
+    printf("%s", RED); \
+    printf(msg, __VA_ARGS__); \
+    printf("%s", DEFAULT); \
+    printf("\n"); 
 
-    strcat(st, msg);
-    strcat(st, append);
+#define LogWarn(msg, ...) \
+    printf("%s", YELLOW); \
+    printf(msg, __VA_ARGS__); \
+    printf("%s", DEFAULT); \
+    printf("\n"); 
 
-}
+#define LogFatal(msg, ...) \
+    printf("%s", BOLD); \
+    printf("%s", RED); \
+    printf(msg, __VA_ARGS__); \
+    printf("%s", DEFAULT); \
+    printf("\n"); 
 
-char * Concatenate(char * msg, char * append) {
-    const char * spc = " ";
-    char newS[strlen(msg) + strlen(spc) + strlen(append) + 1];
-    for (int i = 0; i < strlen(msg) + strlen(spc) + strlen(append) + 1; i++) {
-	newS[i] = '\0';
-    }
+#define LogImportant(msg, ...) \
+    printf("%s", UNDERLINE); \
+    printf("%s", BLUE); \
+    printf(msg, __VA_ARGS__); \
+    printf("%s", DEFAULT); \
+    printf("\n"); 
 
-    strcat(newS, msg);
-    strcat(newS, spc);
-    strcat(newS, append);
-    char * r = &newS;
-    return r;
-}
-
-char * IntToStr(int x) {
-    char s[21];
-    sprintf(s, "%d", x);
-    char * l = &s;
-    return l;
-} // DON'T USE UNLESS THE FUNCTION WILL ONLY BE CALLED ONCE AS OTHER FUNCTIONS MAY CHANGE THE STRING RETURNED BY THIS FUNCTION
-
-char * FloatToStr(float x) {
-    char s[21];
-    sprintf(s, "%f", x);
-    char * l = &s;
-    return l;
-}
-
-
-int LogMsg(const char * msg, const char * color, int nLine) {
-    printf("%s%s%s", color, msg, DEFAULT);
-    if (nLine) printf("\n");
-    return 1;
-}
-
-
-int LogBoldMsg(const char * msg, const char * color, int nLine) {
-    printf("%s%s%s%s", BOLD, color, msg, DEFAULT);
-    if (nLine) printf("\n");
-    return 1;
-}
-
-int LogUnderlinedMsg(const char * msg, const char * color, int nLine) {
-    printf("%s%s%s%s", UNDERLINE, color, msg, DEFAULT);
-    if (nLine) printf("\n");
-    return 1;
-}
-
-#define LogInfo(...) LogMsg(__VA_ARGS__, GREEN, 1);
-#define LogError(...) LogMsg(__VA_ARGS__, RED, 1);
-#define LogWarn(...) LogMsg(__VA_ARGS__, YELLOW, 1);
-#define LogFatal(...) LogBoldMsg(__VA_ARGS__, RED, 1);
-#define LogImportant(...) LogUnderlinedMsg(__VA_ARGS__, RED, 1);

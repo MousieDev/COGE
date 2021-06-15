@@ -45,14 +45,16 @@ void Init() {
 
     unsigned int index[2]  = { 0, 1 };
     int size[4]            = { 3, 2 };
-//    long stride            = sizeof(Vertex);
-//    int pointers[4]        = { offsetof(Vertex, Position), offsetof(Vertex, Color), offsetof(Vertex, TexCoords), offsetof(Vertex, TexID) };
+    /*    long stride            = sizeof(Vertex);
+          int pointers[4]        = { offsetof(Vertex, Position), offsetof(Vertex, Color), offsetof(Vertex, TexCoords), offsetof(Vertex, TexID) }; */
 
     int stride = columns * sizeof(float);
     int pointers[2] = { 0, 3 * sizeof(float) };
     int vertex_pointer_num = 2;
+    
+    int i;
 
-    for (int i = 0; i < vertex_pointer_num; i++) {
+    for (i = 0; i < vertex_pointer_num; i++) {
         glEnableVertexAttribArray(index[i]);
         glVertexAttribPointer(index[i], size[i], GL_FLOAT, GL_FALSE, stride, (void *) pointers[i]);
     }
@@ -74,11 +76,11 @@ void Init() {
     UpdateJoysticks();
 
     if (JoystickIsPresent()) {
-	LogWarn("No Joystick\n");
+	LogWarn("No Joystick", NULL);
     }
 
     else {
-	LogWarn("No Joystick\n");
+	LogWarn("No Joystick", NULL);
     }
 
     uLocation = glGetUniformLocation(shaderID, "move");

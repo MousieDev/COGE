@@ -11,8 +11,6 @@ void GenVAO(VAO * vao)  {
     glBindVertexArray(vao -> vao);
 } 
 
-// Error might occur, remove the ampersands
-
 void RmVAO(VAO * vao) {
     glDeleteVertexArrays(1, &vao -> vao);
 }

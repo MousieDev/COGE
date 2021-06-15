@@ -43,8 +43,7 @@ ProgramProps Gen(float * vertices, unsigned int * indices, unsigned int vertices
 GLFWwindow * WindowInit(int width, int height, const char * name) {
 
     if (!glfwInit()) {
-	//LogError("Error Initializing GLFW");
-	printf("Error Initializing GLFW");
+	LogError("Error Initializing GLFW", NULL);
     }
 
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -57,8 +56,7 @@ GLFWwindow * WindowInit(int width, int height, const char * name) {
 	
     GLFWwindow * window = glfwCreateWindow(width, height, name, NULL, NULL);
     if (!window) {
-	LogError("Error Making Window");
-	//printf("Error Making Window");
+	LogError("Error Making Window", NULL);
 	glfwTerminate();
     }
 
@@ -66,13 +64,11 @@ GLFWwindow * WindowInit(int width, int height, const char * name) {
     glfwSwapInterval(1);
 
     if (!gladLoadGL(glfwGetProcAddress)) {
-	LogError("Error Initializing GLAD\n");
-	//printf("Error Initializing GLAD\n");
+	LogError("Error Initializing GLAD", NULL);
 	glfwTerminate();
     }
     
-    LogInfo(Concatenate("OpenGL Version:", (char *) glGetString(GL_VERSION)));
-    // printf("%s\n", glGetString(GL_VERSION));
+    LogInfo("OpenGL Version: %s", glGetString(GL_VERSION));
 
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);

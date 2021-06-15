@@ -6,9 +6,9 @@
 int keys[GLFW_KEY_LAST + 1];
 int keysChanged[GLFW_KEY_LAST + 1];
 
-
 void InitKeyboard() {
-    for (int i = 0; i < GLFW_KEY_LAST + 1; i++) {
+    int i;
+    for (i = 0; i < GLFW_KEY_LAST + 1; i++) {
 	keys[i] = 0;
 	keysChanged[i] = 0;
     }
