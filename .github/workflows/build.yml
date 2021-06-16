@@ -15,15 +15,15 @@ jobs:
             - name: Compile
               run: .\run-windows.bat
 
-    runs-on: ubuntu-20.04
-    steps:
-        - uses: actions/checkout@v2
+        runs-on: ubuntu-20.04
+        steps:
+            - uses: actions/checkout@v2
 
-        - name: Compile
-          run: bash run-linux.sh
+            - name: Compile
+              run: bash run-linux.sh
 
-    runs-on: macos-latest
-    steps:
-        - uses: actions/checkout@v2
-        - name: Compile
-          run: bash run-mac.sh
+        runs-on: macos-latest
+        steps:
+            - uses: actions/checkout@v2
+            - name: Compile
+              run: bash run-mac.sh
