@@ -2,12 +2,12 @@
 
 #include <stdio.h>
 
-#include "3rd_party/GLAD/gl.h"
-#include "3rd_party/GLFW/glfw3.h"
+#include "GLAD/gl.h"
+#include "GLFW/glfw3.h"
 #include "VertexArray.h"
 #include "VertexBuffer.h"
 #include "IndexBuffer.h"
-#include "Log.h"
+#include "cLogger/Log.h"
 
 typedef struct {
     VAO vao;
@@ -40,10 +40,10 @@ ProgramProps Gen(float * vertices, unsigned int * indices, unsigned int vertices
 }
 
 
-GLFWwindow * WindowInit(int width, int height, const char *name) {
+GLFWwindow * WindowInit(int width, int height, const char * name) {
 
     if (!glfwInit()) {
-        LogError("Error Initializing %s", "GLFW");
+	LogError("Error Initializing GLFW", NULL);
     }
 
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -51,21 +51,21 @@ GLFWwindow * WindowInit(int width, int height, const char *name) {
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
     
     # ifdef __APPLE__
-    glfwWindowHint(GLFW_OPENGL_COMPAT_PROFILE, GL_TRUE);
+	glfwWindowHint(GLFW_OPENGL_COMPAT_PROFILE, GL_TRUE);
     # endif
-
+	
     GLFWwindow * window = glfwCreateWindow(width, height, name, NULL, NULL);
     if (!window) {
-        LogError("Error Making Window: %s", name);
-        glfwTerminate();
+	LogError("Error Making Window", NULL);
+	glfwTerminate();
     }
 
     glfwMakeContextCurrent(window);
     glfwSwapInterval(1);
 
     if (!gladLoadGL(glfwGetProcAddress)) {
-        LogError("Error Initializing %s", "GLAD");
-        glfwTerminate();
+	LogError("Error Initializing GLAD", NULL);
+	glfwTerminate();
     }
     
     LogInfo("OpenGL Version: %s", glGetString(GL_VERSION));

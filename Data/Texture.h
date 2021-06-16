@@ -1,7 +1,7 @@
 #pragma once
 
-#include "3rd_party/stb_image.h"
-#include "3rd_party/GLAD/gl.h"
+#include "STB/stb_image.h"
+#include "GLAD/gl.h"
 #include <string.h>
 
 typedef struct {
@@ -18,11 +18,11 @@ void GenTexture(Texture * tex) {
     unsigned int color;
 
     if (strcmp(tex -> path, "") != 0) {
-        tex -> buffer = stbi_load(tex -> path, &tex -> width, &tex -> height, &tex -> bpp, 4);
+	tex -> buffer = stbi_load(tex -> path, &tex -> width, &tex -> height, &tex -> bpp, 4);
     }
 
     else {
-        color = 0xffffffff;
+	unsigned int color = 0xffffffff;
     }
 
     glGenTextures(1, &tex -> id);
@@ -53,4 +53,7 @@ void GenTexture(Texture * tex) {
 void BindTexture(Texture * tex) { 
     glActiveTexture(tex -> slot);
     glBindTexture(GL_TEXTURE_2D, tex -> id);
+   
 }
+
+

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "3rd_party/GLAD/gl.h"
+#include "GLAD/gl.h"
 
 typedef struct {
     unsigned int vao;

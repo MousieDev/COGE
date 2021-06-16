@@ -54,7 +54,7 @@
 
 #define LogError(msg, ...) \
     printf("%s", RED); \
-    printf("ERR: "); \
+    printf("ERROR: "); \
     printf(msg, __VA_ARGS__); \
     printf("%s", DEFAULT); \
     printf("\n"); 
@@ -69,7 +69,7 @@
 #define LogFatal(msg, ...) \
     printf("%s", BOLD); \
     printf("%s", RED); \
-    printf("!!FATAL ERR: "); \
+    printf("FATAL ERROR: "); \
     printf(msg, __VA_ARGS__); \
     printf("%s", DEFAULT); \
     printf("\n"); 
@@ -77,7 +77,7 @@
 #define LogImportant(msg, ...) \
     printf("%s", UNDERLINE); \
     printf("%s", BLUE); \
-    printf("!!IMP"); \
+    printf("IMPORTANT: "); \
     printf(msg, __VA_ARGS__); \
     printf("%s", DEFAULT); \
     printf("\n"); 
