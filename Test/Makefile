@@ -1,7 +1,7 @@
 export DYLD_LIBRARY_PATH=../Libs
 
 CC = gcc
-FILES = main.c ../Data/GLAD/*.c ../Data/STB/*.c
+FILES = main.c ../Src/3rd_party/GLAD/*.c ../Src/3rd_party/stb_image.c
 LDFLAGS += -L../Libs
 LDFLAGS += -lglfw3
 

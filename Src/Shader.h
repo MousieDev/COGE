@@ -4,68 +4,49 @@
 #include <string.h>
 #include <stdio.h>
 
-#include "GLAD/gl.h"
-#include "cLogger/Log.h"
+#include "3rd_party/GLAD/gl.h"
+#include "Log.h"
 
 /* Credits to: https://github.com/templalizer1284/cshader */
 
+// read an entire file as const char*
+const char* slurp_file(const char* filename) {
+    // load the file
+    FILE* f = fopen(filename, "r");
+    const char* buffer;
+
+    if (f == NULL ) {
+        LogError("Unable to load file `%s`", filename);
+    }
+    // initialize the buffer size
+    long buf_size;
+    fseek(f, 0, SEEK_END);
+    buf_size = ftell(f);
+    buffer = (const char*)malloc(buf_size+1);
+    rewind(f);
+    int read = fread((char*)buffer, sizeof(const char*), buf_size, f);
+    (void)read;
+    // close the file
+    fclose(f);
+    return buffer;
+}
+
+// Load Shader from vertex and fragment shader files
 
 unsigned int LS(const char * vsFileName, const char * fsFileName) {
     unsigned int vsID = glCreateShader(GL_VERTEX_SHADER);
     unsigned int fsID = glCreateShader(GL_FRAGMENT_SHADER);
 
-    FILE * vs = fopen(vsFileName, "r");
-    FILE * fs = fopen(fsFileName, "r");
+    char* vsCode = (char*)slurp_file(vsFileName);
+    int vlength = strlen(vsCode);
+    vsCode[vlength] = '0';
 
-    if (vs == NULL || fs == NULL) {
-	LogError("One of the shaders is not loaded", NULL);
-    }
+    char* fsCode = (char*)slurp_file(fsFileName);
+    int flength = strlen(fsCode);
+    fsCode[flength] = '0';
 
-    fseek(vs, 0, SEEK_END);
-    long vsize = ftell(vs);
-    rewind(vs);
-
-    int vlength = vsize;
-
-    fseek(fs, 0, SEEK_END);
-    long fsize = ftell(fs);
-    rewind(fs);
-
-    int flength = fsize;
-
-
-    char * vsCode = malloc(vsize + 1);
-    char * fsCode = malloc(fsize + 1);
-
-    int i = 0;
-    while (1) {
-	if ((vsCode[i] = fgetc(vs)) == EOF) {
-	    break;
-	}
-
-	i++;
-
-    }
-
-    vsCode[i] = 0;
-    fclose(vs);
-
-    i = 0;
-    while (1) {
-
-	if ((fsCode[i] = fgetc(fs)) == EOF) {
-	    break;
-	}
-
-	i++;
-
-    }
-
-    fsCode[i] = 0;
-    fclose(fs);
-
-    const char * vsSource = vsCode;
-    const char * fsSource = fsCode;
+    const char *vsSource = vsCode;
+    const char *fsSource = fsCode;
 
     int result = 0;
     int infoLogLength;
@@ -77,9 +58,9 @@ unsigned int LS(const char * vsFileName, const char * fsFileName) {
     glGetShaderiv(vsID, GL_INFO_LOG_LENGTH, &infoLogLength);
 
     if (infoLogLength > 0) {
-	char errorMsg[infoLogLength + 1];
-	glGetShaderInfoLog(vsID, infoLogLength, NULL, &errorMsg[0]);
-	LogError("%s", &errorMsg[0]);
+        char errorMsg[infoLogLength + 1];
+        glGetShaderInfoLog(vsID, infoLogLength, NULL, &errorMsg[0]);
+        LogError("%s", &errorMsg[0]);
     }
 
     glShaderSource(fsID, 1, &fsSource, &flength);
@@ -89,9 +70,9 @@ unsigned int LS(const char * vsFileName, const char * fsFileName) {
     glGetShaderiv(fsID, GL_INFO_LOG_LENGTH, &infoLogLength);
 
     if (infoLogLength > 0) {
-	char errorMsg[infoLogLength + 1];
-	glGetShaderInfoLog(fsID, infoLogLength, NULL, &errorMsg[0]);
-	LogError("%s", &errorMsg[0]);
+        char errorMsg[infoLogLength + 1];
+        glGetShaderInfoLog(fsID, infoLogLength, NULL, &errorMsg[0]);
+        LogError("%s", &errorMsg[0]);
     }
 
 
@@ -116,12 +97,8 @@ unsigned int LS(const char * vsFileName, const char * fsFileName) {
     glDeleteShader(vsID);
     glDeleteShader(fsID);
 
-
     free(vsCode);
     free(fsCode);
 
-
     return programID;
 }
-
-

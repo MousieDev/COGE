@@ -4,7 +4,7 @@
 
 Texture tex;
 float vertices[20] = {
- 	-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
+	-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
 	 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
 	 0.5f,  0.5f, 0.0f, 1.0f, 1.0f,
 	-0.5f,  0.5f, 0.0f, 0.0f, 1.0f        
@@ -56,7 +56,7 @@ void Init() {
 
     for (i = 0; i < vertex_pointer_num; i++) {
         glEnableVertexAttribArray(index[i]);
-        glVertexAttribPointer(index[i], size[i], GL_FLOAT, GL_FALSE, stride, (void *) pointers[i]);
+        glVertexAttribPointer(index[i], size[i], GL_FLOAT, GL_FALSE, stride, (void*)pointers[i]);
     }
 
 
@@ -75,12 +75,8 @@ void Init() {
     InitJoysticks(0);
     UpdateJoysticks();
 
-    if (JoystickIsPresent()) {
-	LogWarn("No Joystick", NULL);
-    }
-
-    else {
-	LogWarn("No Joystick", NULL);
+    if (!JoystickIsPresent()) {
+        LogWarn("No Joystick %s", "");
     }
 
     uLocation = glGetUniformLocation(shaderID, "move");
@@ -90,37 +86,37 @@ void Init() {
 void Update() {
     
     if (KeyDown(GLFW_KEY_R)) {
-	movementVec[0] = 0;
-	movementVec[1] = 1;
-	movementVec[2] = 2;
-	movementVec[3] = 3;
+        movementVec[0] = 0;
+        movementVec[1] = 1;
+        movementVec[2] = 2;
+        movementVec[3] = 3;
     }
 
     if (KeyHeldDown(window, GLFW_KEY_W)) {
-	if (movementVec[3] >= 2) {
-	    movementVec[3] -= 0.5;
-	}
+        if (movementVec[3] >= 2) {
+            movementVec[3] -= 0.5;
+        }
     }
 
     if (KeyHeldDown(window, GLFW_KEY_S)) {
-	movementVec[3] += 1;
+        movementVec[3] += 1;
     }
 
 
     if (KeyHeldDown(window, GLFW_KEY_LEFT) || KeyHeldDown(window, GLFW_KEY_A)) {
-	movementVec[0] += 0.1; 
+        movementVec[0] -= 0.1;
     }
 
     if (KeyHeldDown(window, GLFW_KEY_RIGHT) || KeyHeldDown(window, GLFW_KEY_D)) {
-	movementVec[0] -= 0.1; 
+        movementVec[0] += 0.1;
     }
 
     if (KeyHeldDown(window, GLFW_KEY_UP)) {
-	movementVec[1] -= 0.1;
+        movementVec[1] += 0.1;
     }
 
     if (KeyHeldDown(window, GLFW_KEY_DOWN)) {
-	movementVec[1] += 0.1;
+        movementVec[1] -= 0.1;
     }
 
 
@@ -131,7 +127,7 @@ void Update() {
 void Render() {
     RenderBegin(0.2f, 0.3f, 0.5f, 1.0f);
 
-	Draw(vertexNum);
+    Draw(vertexNum);
 
     RenderEnd();
 }

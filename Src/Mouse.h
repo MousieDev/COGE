@@ -1,7 +1,7 @@
 #pragma once
 
-#include "GLAD/gl.h"
-#include "GLFW/glfw3.h"
+#include "3rd_party/GLAD/gl.h"
+#include "3rd_party/GLFW/glfw3.h"
 
 double x, y;
 double lastX, lastY;
@@ -28,8 +28,8 @@ void InitMouse() {
     firstMouse = 1;
     int i;
     for (i = 0; i < GLFW_MOUSE_BUTTON_LAST + 1; i++) {
-	buttons[i] = 0;
-	buttonsChanged[i] = 0;
+        buttons[i] = 0;
+        buttonsChanged[i] = 0;
     }
 }
 
@@ -38,10 +38,10 @@ void CursorPosCallback(GLFWwindow * window, double _x, double _y) {
     y = _y;
 
     if (firstMouse) {
-	lastX = x;
-	lastY = y;
+        lastX = x;
+        lastY = y;
 
-	firstMouse = 0;
+        firstMouse = 0;
     }
 
     dx = x - lastX;
