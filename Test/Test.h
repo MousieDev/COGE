@@ -5,21 +5,21 @@
 #include <string.h>
 #include <stddef.h>
 
-#include "../Data/GLAD/gl.h"
-#include "../Data/GLFW/glfw3.h"
+#include "../Src/3rd_party/GLAD/gl.h"
+#include "../Src/3rd_party/GLFW/glfw3.h"
 
 // Credits: https://github.com/templalizer1284/cshader
 
-#include "../Data/IndexBuffer.h"
-#include "../Data/VertexArray.h"
-#include "../Data/VertexBuffer.h"
-#include "../Data/Shader.h"
-#include "../Data/Texture.h"
-#include "../Data/Keyboard.h"
-#include "../Data/Mouse.h"
-#include "../Data/Joystick.h"
-#include "../Data/Renderer.h"
-#include "../Data/cLogger/Log.h"
+#include "../Src/IndexBuffer.h"
+#include "../Src/VertexArray.h"
+#include "../Src/VertexBuffer.h"
+#include "../Src/Shader.h"
+#include "../Src/Texture.h"
+#include "../Src/Keyboard.h"
+#include "../Src/Mouse.h"
+#include "../Src/Joystick.h"
+#include "../Src/Renderer.h"
+#include "../Src/Log.h"
 
 GLFWwindow * window;
 unsigned int shaderID;
@@ -29,7 +29,7 @@ ProgramProps props;
 void Init();
 void Update();
 void RenderBegin(float r, float g, float b, float a) {
-    ClearScreen(r, g, b, a);        
+    ClearScreen(r, g, b, a);
 }
 
 void Render();
@@ -52,8 +52,8 @@ void Run() {
     Init();
 
     while (!glfwWindowShouldClose(window)) {
-	Update();
-	Render();
+        Update();
+        Render();
     }
 
     Destroy();

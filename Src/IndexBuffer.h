@@ -1,7 +1,7 @@
 #pragma once
 
 #include <stdio.h>
-#include "GLAD/gl.h"
+#include "3rd_party/GLAD/gl.h"
 
 typedef struct {
     const unsigned int * data;

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "GLAD/gl.h"
+#include "3rd_party/GLAD/gl.h"
 
 typedef struct {
     int size;
@@ -26,7 +26,3 @@ void BindVBO(VBO * vbo) {
 void UnbindVBO() {
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
-
-
-
-
