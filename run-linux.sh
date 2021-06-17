@@ -1,4 +1,4 @@
-sudo apt-get install -y libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev xorg-dev
+sudo apt-get install -y libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev xorg-dev cmake
 
 appFile=./app
 
