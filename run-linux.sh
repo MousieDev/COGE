@@ -1,4 +1,4 @@
-sudo apt-get install -y libxrandr-dev libxinerama-dev libxcursor-devlibxi-dev
+sudo apt-get install -y libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev
 
 appFile=./app
 
