@@ -1,0 +1,22 @@
+sourceDir = Source
+externDir = External
+outDir = _build
+
+src = ${sourceDir}
+obj = ${outDir}/obj
+
+frameworkRoot = ${src}/Framework
+glfwRoot = ${externDir}/GLFW
+gladRoot = ${externDir}/GLAD
+single_file_root = ${externDir}/Single_File
+
+# Valid: X11, WIN32, COCOA (aka MacOS)
+platform = COCOA
+
+# Valid: GNU, CLANG, (TCC work in progress, throws build errors)
+toolchain = GNU
+
+# Valid: RELEASE, DEBUG
+mode = DEBUG
+
+# Please, the line below here. It's a mandatory. Without this line Ninja will complain.

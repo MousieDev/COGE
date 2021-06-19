@@ -1,0 +1,32 @@
+name: C/C++ CI
+
+# Currently broken
+
+on:
+    push:
+        branches: [ master ]
+pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+      runs-on: windows-latest
+      steps:
+          - uses: actions/checkout@v2
+
+          - name: Compile
+            run: .\run-windows.bat
+    build:
+
+        runs-on: ubuntu-20.04
+    steps:
+        - uses: actions/checkout@v2
+
+        - name: Compile
+          run: bash run-linux.sh
+
+    runs-on: macos-latest
+    steps:
+        - uses: actions/checkout@v2
+        - name: Compile
+          run: bash run-mac.sh

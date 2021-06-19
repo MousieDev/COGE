@@ -1,0 +1,59 @@
+include ./config.txt
+include ./Tools/Configurations/${toolchain}.ninja
+include ./Tools/Configurations/${toolchain}_${mode}.ninja
+
+rule cc
+    depfile = ${out}.dep
+    command = ${cc} -MD -MF ${out}.dep -o ${out} -c ${in} ${cflags}
+    description = cc ${out}
+
+rule link
+    command = ${cc} -o ${out} ${in} ${libs} ${ldflags}
+    description = link ${out}
+
+rule ar
+    command = ${ar} ${out} ${in}
+    description = ar ${out}
+
+# Building
+## Dependencies
+### Platform dependent
+include ./Tools/Platform/${platform}.ninja
+
+### Generic
+build ${obj}/glad.obj: cc ${externDir}/GLAD/glad.c
+build ${obj}/stb_image.obj: cc ${externDir}/Single_File/stb_image.c
+build ${outDir}/external.a: ar ${obj}/glad.obj ${obj}/stb_image.obj
+
+## Framework
+build ${obj}/ib.obj: cc ${sourceDir}/Framework/IndexBuffer.c
+build ${obj}/joy.obj: cc ${sourceDir}/Framework/Joystick.c
+build ${obj}/keyb.obj: cc ${sourceDir}/Framework/Keyboard.c
+build ${obj}/mous.obj: cc ${sourceDir}/Framework/Mouse.c
+build ${obj}/rend.obj: cc ${sourceDir}/Framework/Renderer.c
+build ${obj}/shad.obj: cc ${sourceDir}/Framework/Shader.c
+build ${obj}/textur.obj: cc ${sourceDir}/Framework/Texture.c
+build ${obj}/va.obj: cc ${sourceDir}/Framework/VertexArray.c
+build ${obj}/vb.obj: cc ${sourceDir}/Framework/VertexBuffer.c
+build ${outDir}/framework.a: ar ${obj}/ib.obj ${obj}/joy.obj ${obj}/keyb.obj ${obj}/mous.obj ${obj}/rend.obj ${obj}/shad.obj ${obj}/textur.obj ${obj}/va.obj ${obj}/vb.obj
+
+## App
+build ${obj}/main.obj: cc ${sourceDir}/Main.c
+
+build ${outDir}/app.a: ar ${obj}/main.obj
+build ${outDir}/app${extension}: link ${outDir}/app.a ${outDir}/framework.a ${outDir}/${platform}.a ${outDir}/external.a
+  libs = ${dependentLibs}
+
+## Test
+build ${obj}/test.obj: cc ${sourceDir}/Test.c
+
+build ${outDir}/test.a: ar ${obj}/test.obj
+build ${outDir}/test${extension}: link ${outDir}/test.a ${outDir}/framework.a ${outDir}/${platform}.a ${outDir}/external.a
+  libs = ${dependentLibs}
+
+# End of build targets.
+
+build app: phony ${outDir}/app${extension}
+build test: phony ${outDir}/test${extension}
+
+default app
