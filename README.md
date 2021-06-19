@@ -93,34 +93,46 @@ Still pretty bare-bones Engine
 Very easy to setup
 
 ### Test Class:
+```
         GLFWwindow * window  
+```
 Program Props:  
+```
         VBO, IBO, VAO = { 1, 1, 1 }:  
+```
 1 for everthing to encourage using just 1 of everything to store what I need, encourages batching...  
+```
         Init  
         Update  
         Render  
         Clean  
+```
 
 Now the test class was implemented in a very interesting way...I first made functions for:  
+```
         Init();  
         Update();  
         Render();  
         Clean();  
+```
 
 And some more utility functions  
 
 Then I made a new header for the type of test I want, as of now just the DevelopmentTest.h and then in that I define the functions:  
+```
         Init();  
         Update();  
         Render();  
         Clean();  
+```
 
 Then in the Main.c, I just call a function called Run which just calls the Functions:  
+```
         Init();  
         Update();  
         Render();  
         Clean();  
+```
 
 This is basically inheritance in C without OOP  
 
