@@ -1,4 +1,7 @@
 #include "Joystick.h"
+#include <glad.h>
+#include <GLFW/glfw3.h>
+
 
 int GetJoystickID(int i) {
 	return GLFW_JOYSTICK_1 + i;

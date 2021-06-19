@@ -1,4 +1,6 @@
 #include "IndexBuffer.h"
+#include <glad.h>
+#include <stdio.h>
 
 void GenIBO(IBO *indexBuffer) {
 	glGenBuffers(1, &indexBuffer -> ibo);

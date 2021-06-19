@@ -1,5 +1,9 @@
 #include "Shader.h"
-#include "../../External/Single_File/log.h"
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <glad.h>
+#include <log.h>
 
 unsigned int LoadShader(const char *vsFileName, const char *fsFileName) {
 	unsigned int vsID = glCreateShader(GL_VERTEX_SHADER);

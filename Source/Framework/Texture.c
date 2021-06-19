@@ -1,4 +1,6 @@
 #include "Texture.h"
+#include <stb_image.h>
+#include <glad.h>
 
 void GenTexture(Texture *tex) {
 	stbi_set_flip_vertically_on_load(1);

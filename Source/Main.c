@@ -1,3 +1,12 @@
+#include <Keyboard.h>
+#include <IndexBuffer.h>
+#include <VertexArray.h>
+#include <VertexBuffer.h>
+#include <Shader.h>
+#include <Texture.h>
+#include <Mouse.h>
+#include <Joystick.h>
+#include <Renderer.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -5,15 +14,6 @@
 #include <GLFW/glfw3.h>
 
 // Credits: https://github.com/templalizer1284/cshader
-#include "IndexBuffer.h"
-#include "VertexArray.h"
-#include "VertexBuffer.h"
-#include "Shader.h"
-#include "Texture.h"
-#include "Keyboard.h"
-#include "Mouse.h"
-#include "Joystick.h"
-#include "Renderer.h"
 
 // Add more header files, ../../, OpenGL-CPP/OpenGL-Website-Video-Tuts 
 // Add keyboard support, maybe make it more centered to Main.c rather than Keyboard.h

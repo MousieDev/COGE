@@ -1,8 +1,5 @@
 #pragma once
 
-#include "stb_image.h"
-#include <glad.h>
-
 typedef struct {
 	unsigned int id;
 	const char *path;

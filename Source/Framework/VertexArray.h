@@ -1,7 +1,5 @@
 #pragma once
 
-#include <glad.h>
-
 typedef struct {
 	unsigned int vao;
 } VAO;
@@ -9,6 +7,7 @@ typedef struct {
 void GenVAO(VAO *vao);
 
 // Error might occur, remove the ampersands
+// wot - Mousie
 
 void RmVAO(VAO *vao);
 void BindVAO(VAO *vao);
