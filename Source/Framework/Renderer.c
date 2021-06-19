@@ -1,4 +1,6 @@
 #include "Renderer.h"
+#include <stdio.h>
+#include <log.h>
 
 ProgramProps Gen(float *vertices, unsigned int *indices, unsigned int verticesSize, unsigned int indicesSize, unsigned int vboUsage, unsigned int iboUsage) {
 	ProgramProps props;

@@ -1,8 +1,5 @@
 #pragma once
 
-#include <glad.h>
-#include <GLFW/glfw3.h>
-
 // analog input	button values					//		PS		|		XBOX
 #define GLFW_JOYSTICK_BTN_LEFT 0				//	Square		|	X
 #define GLFW_JOYSTICK_BTN_DOWN 1				//	X			|	A

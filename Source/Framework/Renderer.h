@@ -1,15 +1,11 @@
 #pragma once
 
-#include <stdio.h>
-
 #include <glad.h>
 #include <GLFW/glfw3.h>
 
-#include <log.h>
-
-#include "VertexArray.h"
-#include "VertexBuffer.h"
-#include "IndexBuffer.h"
+#include <VertexArray.h>
+#include <VertexBuffer.h>
+#include <IndexBuffer.h>
 
 typedef struct {
 	VAO vao;

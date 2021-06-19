@@ -1,8 +1,5 @@
 #pragma once
 
-#include <stdio.h>
-#include <glad.h>
-
 typedef struct {
 	const unsigned int *data;
 	unsigned int size;

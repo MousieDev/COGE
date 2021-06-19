@@ -1,7 +1,5 @@
 #pragma once
 
-#include <glad.h>
-
 typedef struct {
 	int size;
 	const void *data;

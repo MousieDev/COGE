@@ -1,4 +1,5 @@
 #include "VertexBuffer.h"
+#include <glad.h>
 
 void GenVBO(VBO *vbo) {    
 	glGenBuffers(1, &vbo -> vbo);

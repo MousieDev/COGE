@@ -1,4 +1,5 @@
 #include "VertexArray.h"
+#include <glad.h>
 
 void GenVAO(VAO *vao)  {
 	glGenVertexArrays(1, &vao -> vao);
