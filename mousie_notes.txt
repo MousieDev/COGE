@@ -1,0 +1,4 @@
+Ninja broke github actions
+Test.c is broken for some wild reason
+TCC toolchain is work in progress
+Don't upgrade GLFW (please, i beg you)

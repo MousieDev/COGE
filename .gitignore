@@ -1,3 +1,6 @@
-Libs
-app
-.DS_Store
+.ninja_log
+_build
+__build
+___build
+*.DS_Store
+*.DS_STORE
