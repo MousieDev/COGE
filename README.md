@@ -7,7 +7,7 @@ cOOPgraphicsEngine or COGE
 Due to the fact that it uses structs and very OOP-like... methods
 
 # Logo
-![Doge but cat](.mdRes/Coge.jpeg)
+![Doge but cat](./.mdRes/Coge.jpeg)
 
 # Features of COGE:
 
