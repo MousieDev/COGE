@@ -225,7 +225,7 @@ Support for other graphical APIs
 
         - Windows:
             run:
-        .\Scripts/run-windows.bat
+            Scripts/run-windows.bat
 	    bin/app.exe
 
 	> Only run from the root directory, don't change the directories
