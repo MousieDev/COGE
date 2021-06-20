@@ -211,23 +211,24 @@ Support for other graphical APIs
 ### Web:
         Build for web
 
-### Builds:
-        Multi-Platform Compilation?
 
 # Getting the COGE:
         - Mac:
             run:
-            bash run-mac.sh
-            ./app
+		bash run-mac.sh
+		bin/app
 
         - Linux (Ubuntu Only :/):
             run:
-            bash run-linux.sh
-            ./app
+		bash run-linux.sh
+		bin/app
 
-            - Windows:
-                run:
-                Coming soon...
+        - Windows:
+            run:
+                .\run-windows.bat
+		bin/app.exe
+
+	> Only run from the root directory, don't change the directories
 
 
 # Credits to:
