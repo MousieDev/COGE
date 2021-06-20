@@ -49,7 +49,7 @@ void Init() {
           int pointers[4]        = { offsetof(Vertex, Position), offsetof(Vertex, Color), offsetof(Vertex, TexCoords), offsetof(Vertex, TexID) }; */
 
     int stride = columns * sizeof(float);
-    int pointers[2] = { 0, 3 * sizeof(float) };
+    long pointers[2] = { 0, 3 * sizeof(float) };
     int vertex_pointer_num = 2;
     
     int i;
