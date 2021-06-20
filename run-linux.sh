@@ -11,5 +11,4 @@ else
 fi
 
 export DYLD_LIBRARY_PATH=Libs
-cd Test
 make linux 

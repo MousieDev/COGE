@@ -1,61 +1,58 @@
-#pragma once
+#ifndef _COGE_TEST 
+    #define _COGE_TEST
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stddef.h>
-
-#include "../Data/GLAD/gl.h"
-#include "../Data/GLFW/glfw3.h"
+    #include "../Framework/External/GLAD/gl.h"
+    #include "../Framework/External/GLFW/glfw3.h"
 
 // Credits: https://github.com/templalizer1284/cshader
 
-#include "../Data/IndexBuffer.h"
-#include "../Data/VertexArray.h"
-#include "../Data/VertexBuffer.h"
-#include "../Data/Shader.h"
-#include "../Data/Texture.h"
-#include "../Data/Keyboard.h"
-#include "../Data/Mouse.h"
-#include "../Data/Joystick.h"
-#include "../Data/Renderer.h"
-#include "../Data/cLogger/Log.h"
+    #include "../Framework/IndexBuffer.h"
+    #include "../Framework/VertexArray.h"
+    #include "../Framework/VertexBuffer.h"
+    #include "../Framework/Shader.h"
+    #include "../Framework/Texture.h"
+    #include "../Framework/Keyboard.h"
+    #include "../Framework/Mouse.h"
+    #include "../Framework/Joystick.h"
+    #include "../Framework/Utils.h"
+    #include "../Framework/Log.h"
 
-GLFWwindow * window;
-unsigned int shaderID;
-int uLocation;
-ProgramProps props;
+    GLFWwindow * window;
+    unsigned int shaderID;
+    int uLocation;
+    ProgramProps props;
 
-void Init();
-void Update();
-void RenderBegin(float r, float g, float b, float a) {
-    ClearScreen(r, g, b, a);        
-}
-
-void Render();
-
-void RenderEnd() {
-    glfwSwapBuffers(window);
-    glfwPollEvents();
-}
-
-void Destroy() {
-    glUseProgram(0);
-    glfwTerminate();
-}
-
-void ResetULoc() {
-    uLocation = -1;
-}
-
-void Run() {
-    Init();
-
-    while (!glfwWindowShouldClose(window)) {
-	Update();
-	Render();
+    void Init();
+    void Update();
+    void RenderBegin(float r, float g, float b, float a) {
+	ClearScreen(r, g, b, a);        
     }
 
-    Destroy();
-}
+    void Render();
 
+    void RenderEnd() {
+	glfwSwapBuffers(window);
+	glfwPollEvents();
+    }
+
+    void Destroy() {
+	glUseProgram(0);
+	glfwTerminate();
+    }
+
+    void ResetULoc() {
+	uLocation = -1;
+    }
+
+    void Run() {
+	Init();
+
+	while (!glfwWindowShouldClose(window)) {
+	    Update();
+	    Render();
+	}
+
+	Destroy();
+    }
+
+#endif
