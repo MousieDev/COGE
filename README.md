@@ -60,7 +60,7 @@ typedef struct {
 
 Now the methods, first off, structs don't have any private vairables so intialization can be done just by declaring a variable of the type Character and then assigning whatever we want and we don't really need anything like setters and getters neither.. so it seems that we are basically done.. as everything can be done like this:
 
-```c++
+```c
 Character character = { .x = 10, .y = 120, .z = 21, .name = "Lol"  };
 
 // Setting New Name
@@ -101,13 +101,6 @@ Program Props:
         VBO, IBO, VAO = { 1, 1, 1 }:  
 ```
 1 for everthing to encourage using just 1 of everything to store what I need, encourages batching...  
-```
-        Init  
-        Update  
-        Render  
-        Clean  
-```
-
 Now the test class was implemented in a very interesting way...I first made functions for:  
 ```
         Init();  
@@ -209,7 +202,7 @@ Support for other graphical APIs
 #if defines will be very useful
 
 ### Web:
-        Build for web
+Build for web
 
 
 # Getting the COGE:
