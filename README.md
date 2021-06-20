@@ -215,17 +215,17 @@ Support for other graphical APIs
 # Getting the COGE:
         - Mac:
             run:
-		bash run-mac.sh
+		bash Scripts/run-mac.sh
 		bin/app
 
         - Linux (Ubuntu Only :/):
             run:
-		bash run-linux.sh
+		bash Scripts/run-linux.sh
 		bin/app
 
         - Windows:
             run:
-                .\run-windows.bat
+                .\Scripts/run-windows.bat
 		bin/app.exe
 
 	> Only run from the root directory, don't change the directories

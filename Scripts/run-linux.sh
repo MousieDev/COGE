@@ -1,6 +1,6 @@
+sudo apt-get install -y libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev xorg-dev cmake libx11-dev
+
 appFile=./app
-libGLFW=./Libs/libglfw3.a
-Lib=./Libs
 
 sh ./install-glfw-deps.sh
 
@@ -11,4 +11,5 @@ else
 fi
 
 export DYLD_LIBRARY_PATH=Libs
-make mac 
+mkdir bin
+make linux 
