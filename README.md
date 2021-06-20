@@ -214,20 +214,20 @@ Support for other graphical APIs
 
 # Getting the COGE:
 - Mac:
-``
+```
 bash Scripts/run-mac.sh
 bin/app
-``
+```
 - Linux (Ubuntu Only :/):
-``
+```
 bash Scripts/run-linux.sh
 bin/app
-``
+```
 - Windows:
-``
+```
 Scripts/run-windows.bat
 bin/app.exe
-``
+```
 > Only run from the root directory, don't change the directories
 
 
