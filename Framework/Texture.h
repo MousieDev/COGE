@@ -1,5 +1,5 @@
-#ifndef texture
-    #define texture
+#ifndef _COGE_TEXTURE
+    #define _COGE_TEXTURE
 
     #include "External/STB/stb_image.h"
     #include "External/GLAD/gl.h"

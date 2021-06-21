@@ -1,5 +1,5 @@
-#ifndef shader
-    #define shader
+#ifndef _COGE_SHADER 
+    #define _COGE_SHADER
 
     #include <stdlib.h>
     #include <string.h>
