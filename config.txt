@@ -1,18 +1,18 @@
-sourceDir = src
+sourceDir = ./src
 testSrcDir = ./test
 externDir = ./third_party
-outDir = _build
+outDir = ./_build
 
 src = ${sourceDir}
 obj = ${outDir}/obj
 
-frameworkRoot = include
-glfwRoot = ${externDir}/GLFW
-gladRoot = ${externDir}/GLAD
-single_file_root = ${externDir}/STB/
+frameworkRoot = ./include
+glfwRoot = ${externDir}/glfw
+gladRoot = ${externDir}/glad
+single_file_root = ${externDir}/stb
 
 # Valid: X11, WIN32, COCOA (aka MacOS)
-platform = COCOA
+platform = WIN32
 
 # Valid: GNU, CLANG, (TCC work in progress, throws build errors)
 toolchain = GNU

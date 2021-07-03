@@ -167,12 +167,18 @@ Build for web
 
 
 # Getting the COGE:
-```
+```sh
 git clone https://github.com/DevHedronYT/COGE.git
 cd COGE
-Change config.txt to whatever configuration you have
-ninja 
+# Change config.txt to whatever configuration you have
+# On linux, install these: libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev xorg-dev cmake libx11-dev
+ninja
+
+# on linux/mac:
 _build/app.out
+
+# windows:
+_build\\app.exe
 ```
 
 > Only run from the root directory, don't change the directories
@@ -182,20 +188,3 @@ _build/app.out
 
 [templalizer1284](https://github.com/templalizer1284/cshader), for Shader Loading   
 [MousieDev](https://github.com/MousieDev), for all the tips and helping me with the Engine
-
-# Codebase:
-    github.com/AlDanial/cloc v 1.90  T=0.21 s (196.0 files/s, 242095.7 lines/s)
-    -------------------------------------------------------------------------------
-    Language                     files          blank        comment           code
-    -------------------------------------------------------------------------------
-    C/C++ Header                    19           2675           6902          30202
-    C                                5            110              4          10244
-    Markdown                         1             65              0            151
-    GLSL                            10             51              1            100
-    Bourne Shell                     2             15              0             66
-    make                             2             8              1             17
-    YAML                             1              6              1             13
-    DOS Batch                        1              4              0              7
-    -------------------------------------------------------------------------------
-    SUM:                            41           2934           6909          40800
-    -------------------------------------------------------------------------------

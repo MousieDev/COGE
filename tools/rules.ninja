@@ -1,0 +1,12 @@
+rule cc
+    depfile = ${out}.dep
+    command = ${cc} -MD -MF ${out}.dep -o ${out} -c ${in} ${cflags}
+    description = cc ${out}
+
+rule link
+    command = ${cc} -o ${out} ${in} ${libs} ${ldflags}
+    description = link ${out}
+
+rule ar
+    command = ${ar} ${out} ${in}
+    description = ar ${out}
