@@ -1,14 +1,9 @@
 export DYLD_LIBRARY_PATH=../Libs
 
 CC = gcc
-DEPFOLDER = Framework
-EXTERNAL = $(DEPFOLDER)/External
-SRCF = Test
-FILES = $(SRCF)/main.c $(EXTERNAL)/GLAD/*.c $(EXTERNAL)/STB/*.c
-LDFLAGS += -LLibs
-LDFLAGS += -lglfw3
+FILES = test/main.c src/*.c include/External/GLFW/src/*.c include/External/GLAD/*.c include/External/STB/*.c
 
-COMMONFLAGS = -std=c99 -march=native -mtune=native -O2 -pipe -IData
+COMMONFLAGS = -std=c99 -march=native -mtune=native -O2 -pipe -Iinclude -Iinclude/External
 
 MACFLAGS = -framework CoreFoundation -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo
 LINUXFLAGS = -Wl,--no-as-needed -lm -ldl -lpthread

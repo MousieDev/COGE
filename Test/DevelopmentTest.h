@@ -2,7 +2,7 @@
 
 #include "Test.h"
 
-Texture tex;
+coge_texture_t tex;
 float vertices[20] = {
  	-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
 	 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
@@ -25,19 +25,19 @@ float movementVec[4] = {
 
 
 void Init() {
-    window = WindowInit(640, 480, "Dev Testing");
-    shaderID = LS("Resources/Shaders/vertex_core_one.glsl", "Resources/Shaders/fragment_core_one.glsl");
+    window = coge_window_init(640, 480, "Dev Testing");
+    shaderID = coge_load_shader("res/Shaders/vertex_core_one.glsl", "res/Shaders/fragment_core_one.glsl");
 
     glUseProgram(0);
     glUseProgram(shaderID);
 
-    tex.path = "Resources/Images/Hedron.png";
-    tex.slot = 0;
+    tex.m_path = "res/Images/Hedron.png";
+    tex.m_slot = 0;
 
-    GenTexture(&tex);
-    BindTexture(&tex); 
+    coge_gen_texture_t(&tex);
+    coge_bind_texture_t(&tex); 
 
-    props = Gen(vertices, indices, sizeof(vertices), sizeof(indices), GL_STATIC_DRAW, GL_STATIC_DRAW);
+    props = coge_gen_program_props_t(vertices, indices, sizeof(vertices), sizeof(indices), GL_STATIC_DRAW, GL_STATIC_DRAW);
    
     vertexNum = sizeof(indices) / sizeof(indices[0]);
     columns = 5;
@@ -61,26 +61,26 @@ void Init() {
 
 
     uLocation = glGetUniformLocation(shaderID, "uTexture");
-    glUniform1i(uLocation, tex.slot);
+    glUniform1i(uLocation, tex.m_slot);
     ResetULoc();
 
-    InitKeyboard();
-    glfwSetKeyCallback(window, KeyCallback);
+    coge_init_keyboard();
+    glfwSetKeyCallback(window, coge_keyboard_key_callback);
 
-    InitMouse();
-    glfwSetCursorPosCallback(window, CursorPosCallback);
-    glfwSetMouseButtonCallback(window, MouseButtonCallback);
-    glfwSetScrollCallback(window, MouseWheelCallback);
+    coge_init_mouse();
+    glfwSetCursorPosCallback(window, coge_mouse_cursor_pos_callback);
+    glfwSetMouseButtonCallback(window, coge_mouse_button_callback);
+    glfwSetScrollCallback(window, coge_mouse_wheel_callback);
+    
+    coge_init_joystick(0);
+    coge_update_joystick();
 
-    InitJoysticks(0);
-    UpdateJoysticks();
-
-    if (JoystickIsPresent()) {
-	LogWarn("No Joystick", NULL);
+    if (coge_is_joystick_present()) {
+	coge_log_warning("No Joystick", NULL);
     }
 
     else {
-	LogWarn("No Joystick", NULL);
+	coge_log_warning("No Joystick", NULL);
     }
 
     uLocation = glGetUniformLocation(shaderID, "move");
@@ -89,37 +89,37 @@ void Init() {
 
 void Update() {
     
-    if (KeyDown(GLFW_KEY_R)) {
+    if (coge_keyboard_key_down(GLFW_KEY_R)) {
 	movementVec[0] = 0;
 	movementVec[1] = 1;
 	movementVec[2] = 2;
 	movementVec[3] = 3;
     }
 
-    if (KeyHeldDown(window, GLFW_KEY_W)) {
+    if (coge_keyboard_key_held_down(window, GLFW_KEY_W)) {
 	if (movementVec[3] >= 2) {
 	    movementVec[3] -= 0.5;
 	}
     }
 
-    if (KeyHeldDown(window, GLFW_KEY_S)) {
+    if (coge_keyboard_key_held_down(window, GLFW_KEY_S)) {
 	movementVec[3] += 1;
     }
 
 
-    if (KeyHeldDown(window, GLFW_KEY_LEFT) || KeyHeldDown(window, GLFW_KEY_A)) {
+    if (coge_keyboard_key_held_down(window, GLFW_KEY_LEFT) || coge_keyboard_key_held_down(window, GLFW_KEY_A)) {
 	movementVec[0] += 0.1; 
     }
 
-    if (KeyHeldDown(window, GLFW_KEY_RIGHT) || KeyHeldDown(window, GLFW_KEY_D)) {
+    if (coge_keyboard_key_held_down(window, GLFW_KEY_RIGHT) || coge_keyboard_key_held_down(window, GLFW_KEY_D)) {
 	movementVec[0] -= 0.1; 
     }
 
-    if (KeyHeldDown(window, GLFW_KEY_UP)) {
+    if (coge_keyboard_key_held_down(window, GLFW_KEY_UP)) {
 	movementVec[1] -= 0.1;
     }
 
-    if (KeyHeldDown(window, GLFW_KEY_DOWN)) {
+    if (coge_keyboard_key_held_down(window, GLFW_KEY_DOWN)) {
 	movementVec[1] += 0.1;
     }
 
@@ -131,7 +131,7 @@ void Update() {
 void Render() {
     RenderBegin(0.2f, 0.3f, 0.5f, 1.0f);
 
-	Draw(vertexNum);
+	coge_draw_vertices(vertexNum);
 
     RenderEnd();
 }

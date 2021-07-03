@@ -1,31 +1,31 @@
 #ifndef _COGE_TEST 
     #define _COGE_TEST
 
-    #include "../Framework/External/GLAD/gl.h"
-    #include "../Framework/External/GLFW/glfw3.h"
+    #include <gl.h>
+    #include <GLFW/glfw3.h>
 
 // Credits: https://github.com/templalizer1284/cshader
 
-    #include "../Framework/IndexBuffer.h"
-    #include "../Framework/VertexArray.h"
-    #include "../Framework/VertexBuffer.h"
-    #include "../Framework/Shader.h"
-    #include "../Framework/Texture.h"
-    #include "../Framework/Keyboard.h"
-    #include "../Framework/Mouse.h"
-    #include "../Framework/Joystick.h"
-    #include "../Framework/Utils.h"
-    #include "../Framework/Log.h"
+    #include <ibo.h>
+    #include <vao.h> 
+    #include <vbo.h>
+    #include <shader.h>
+    #include <tex.h>
+    #include <keyboard.h>
+    #include <mouse.h>
+    #include <joystick.h>
+    #include <util.h>
+    #include <log.h>
 
     GLFWwindow * window;
     unsigned int shaderID;
     int uLocation;
-    ProgramProps props;
+    coge_program_props_t props;
 
     void Init();
     void Update();
     void RenderBegin(float r, float g, float b, float a) {
-	ClearScreen(r, g, b, a);        
+	coge_clear_screen(r, g, b, a);        
     }
 
     void Render();
