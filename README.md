@@ -14,8 +14,8 @@ Due to the fact that it uses structs and very OOP-like... methods
 ### OpenGL 4.1:
 Modern OpenGL and makes my life way easier, like a lot but still does not have access to certain functions
 
-### Header-Only Files:
-VBO, VAO, IBO..etc.. don't really have .c files and just one header file which contains all the necessary functions to make it easier to manage the files
+### Insanely Fast Compilation:
+Utilizes Ninja for compilation and compiles within seconds (< 15 seconds)
 
 ### VAOs, IBOs, VBOs:
 Abstracted so now it works very similar to the OOP way I did in C++ but instead uses structs and is more centered to the struct
@@ -92,45 +92,6 @@ Still pretty bare-bones Engine
 ### Makefile/SH Script to Compile:
 Very easy to setup
 
-### Test Class:
-```
-        GLFWwindow * window  
-```
-Program Props:  
-```
-        VBO, IBO, VAO = { 1, 1, 1 }:  
-```
-1 for everthing to encourage using just 1 of everything to store what I need, encourages batching...  
-Now the test class was implemented in a very interesting way...I first made functions for:  
-```
-        Init();  
-        Update();  
-        Render();  
-        Clean();  
-```
-
-And some more utility functions  
-
-Then I made a new header for the type of test I want, as of now just the DevelopmentTest.h and then in that I define the functions:  
-```
-        Init();  
-        Update();  
-        Render();  
-        Clean();  
-```
-
-Then in the Main.c, I just call a function called Run which just calls the Functions:  
-```
-        Init();  
-        Update();  
-        Render();  
-        Clean();  
-```
-
-This is basically inheritance in C without OOP  
-
-This makes it more easier for me and I don't have to include the OpenGL headers and basically just get done just like that.
-
 ### GitHub:
 VERSION CONTROL
 Contribution from other people
@@ -142,10 +103,10 @@ No complicated stuff, quite basic and should be very easy to port, might even wo
 ### Logging Library:
 Prints messages, warnings, and errors easily but does give off some warnings and it uses ANSI colors and makes the output colored
 
-### Test-Like Class [Not Actual Class But Just Functions]:
-Test-Like Class header file for making rapid tests
-
 # Features to be implemented in COGE:
+
+### Unit Testing:
+Needed for rapid tests
 
 ### Batch Renderer:
 Abstraction
@@ -206,21 +167,14 @@ Build for web
 
 
 # Getting the COGE:
-- Mac:
 ```
-bash Scripts/run-mac.sh
-bin/app
+git clone https://github.com/DevHedronYT/COGE.git
+cd COGE
+Change config.txt to whatever configuration you have
+ninja 
+_build/app.out
 ```
-- Linux (Ubuntu Only :/):
-```
-bash Scripts/run-linux.sh
-bin/app
-```
-- Windows:
-```
-Scripts/run-windows.bat
-bin/app.exe
-```
+
 > Only run from the root directory, don't change the directories
 
 
