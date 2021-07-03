@@ -174,6 +174,13 @@ Change config.txt to whatever configuration you have
 ninja 
 _build/app.out
 ```
+> Note, if building COGE gives you an error and you are on linux, try running:
+
+- ``bash tools/linux-deps.sh``
+- ``./tools/linux-deps.sh``
+- ``sh tools/linux-deps.sh``
+
+> And then retry compiling COGE
 
 > Only run from the root directory, don't change the directories
 
