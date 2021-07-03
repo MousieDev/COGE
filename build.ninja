@@ -26,7 +26,7 @@ build ${obj}/vb.obj: cc ${sourceDir}/vbo.c
 build ${outDir}/framework.a: ar ${obj}/ib.obj ${obj}/joy.obj ${obj}/keyb.obj ${obj}/mous.obj ${obj}/rend.obj ${obj}/shad.obj ${obj}/textur.obj ${obj}/va.obj ${obj}/vb.obj
 
 ## App
-build ${obj}/main.obj: cc ${testSrcDir}/Main.c
+build ${obj}/main.obj: cc ${testSrcDir}/main.c
 
 build ${outDir}/app.a: ar ${obj}/main.obj
 build ${outDir}/app${extension}: link ${outDir}/app.a ${outDir}/framework.a ${outDir}/${platform}.a ${outDir}/external.a

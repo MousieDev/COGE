@@ -167,11 +167,15 @@ Build for web
 
 
 # Getting the COGE:
+- You need Ninja to compile COGE:
+  - Further instructions here: [How to install Ninja](https://github.com/ninja-build/ninja/wiki/Pre-built-Ninja-packages)
+  - Or here: [The Ninja build system article by Mousie](http://mousiedev.ejemplo.me/articles/IAbl6JyqqeQ47Wwi9TI7)
+
 ```sh
 git clone https://github.com/DevHedronYT/COGE.git
 cd COGE
 # Change config.txt to whatever configuration you have
-# On linux, install these: libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev xorg-dev cmake libx11-dev
+# On linux, install these if build fails: libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev xorg-dev cmake libx11-dev
 ninja
 
 # on linux/mac:
@@ -181,10 +185,9 @@ _build/app.out
 _build\\app.exe
 ```
 
-> Only run from the root directory, don't change the directories
-
+### Only run from the root directory, don't change the directories
 
 # Credits to:
-
-[templalizer1284](https://github.com/templalizer1284/cshader), for Shader Loading   
-[MousieDev](https://github.com/MousieDev), for all the tips and helping me with the Engine
+  * [templalizer1284](https://github.com/templalizer1284/cshader), for Shader Loading   
+  * [MousieDev](https://github.com/MousieDev), for all the tips and helping me with the Engine
+  * [NrdyBhu1](https://github.com/NrdyBhu1), for contributing
