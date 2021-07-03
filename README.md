@@ -182,7 +182,7 @@ ninja
 _build/app.out
 
 # windows:
-_build\\app.exe
+_build\app.exe
 ```
 
 ### Only run from the root directory, don't change the directories
