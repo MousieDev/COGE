@@ -18,7 +18,7 @@ build ${obj}/glfw_glx_context.obj: cc ${glfwRoot}/src/glx_context.c
 build ${obj}/glfw_egl_context.obj: cc ${glfwRoot}/src/egl_context.c
 build ${obj}/glfw_linux_joystick.obj: cc ${glfwRoot}/src/linux_joystick.c
 
-build ${outDir}/${platform}.a: ar $
+build ${builddir}/${platform}.a: ar $
 ${obj}/glfw_init.obj ${obj}/glfw_input.obj ${obj}/glfw_vulkan.obj ${obj}/glfw_context.obj ${obj}/glfw_monitor.obj ${obj}/glfw_window.obj $
 ${obj}/glfw_x11_init.obj ${obj}/glfw_x11_monitor.obj ${obj}/glfw_x11_window.obj ${obj}/glfw_xkb_unicode.obj ${obj}/glfw_posix_time.obj ${obj}/glfw_posix_thread.obj ${obj}/glfw_linux_joystick.obj $
 ${obj}/glfw_glx_context.obj ${obj}/glfw_egl_context.obj

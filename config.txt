@@ -1,23 +1,23 @@
 sourceDir = ./src
 testSrcDir = ./test
 externDir = ./third_party
-outDir = ./_build
+builddir = ./_build
 
 src = ${sourceDir}
-obj = ${outDir}/obj
+obj = ${builddir}/obj
 
 frameworkRoot = ./include
 glfwRoot = ${externDir}/glfw
 gladRoot = ${externDir}/glad
 single_file_root = ${externDir}/stb
 
-# Valid: X11, WIN32, COCOA (aka MacOS)
+# Valid: X11, WIN32, COCOA (aka MacOS) (case sensitive)
 platform = WIN32
 
-# Valid: GNU, CLANG, (TCC work in progress, throws build errors)
-toolchain = GNU
+# Valid: gnu, clang, (tcc work in progress, throws build errors) (case sensitive)
+toolchain = gnu
 
-# Valid: RELEASE, DEBUG
-mode = DEBUG
+# Valid: release, debug (case sensitive)
+mode = debug
 
 # Please, the line below here. It's a mandatory. Without this line Ninja will complain.

@@ -17,7 +17,7 @@ build ${obj}/glfw_win32_window.obj: cc ${glfwRoot}/src/win32_window.c
 build ${obj}/glfw_wgl_context.obj: cc ${glfwRoot}/src/wgl_context.c
 build ${obj}/glfw_egl_context.obj: cc ${glfwRoot}/src/egl_context.c
 
-build ${outDir}/${platform}.a: ar $
+build ${builddir}/${platform}.a: ar $
 ${obj}/glfw_init.obj ${obj}/glfw_input.obj ${obj}/glfw_vulkan.obj ${obj}/glfw_context.obj ${obj}/glfw_monitor.obj ${obj}/glfw_window.obj $
 ${obj}/glfw_win32_init.obj ${obj}/glfw_win32_joystick.obj ${obj}/glfw_win32_monitor.obj ${obj}/glfw_win32_time.obj ${obj}/glfw_win32_thread.obj ${obj}/glfw_win32_window.obj $
 ${obj}/glfw_wgl_context.obj ${obj}/glfw_egl_context.obj

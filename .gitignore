@@ -1,5 +1,3 @@
 _build
 *.DS_Store
 *.DS_STORE
-.ninja_log
-config.txt

@@ -11,7 +11,7 @@ include ./tools/platforms/${platform}.ninja
 ### Generic
 build ${obj}/glad.obj: cc ${externDir}/glad/glad.c
 build ${obj}/stb_image.obj: cc ${externDir}/stb/stb_image.c
-build ${outDir}/external.a: ar ${obj}/glad.obj ${obj}/stb_image.obj
+build ${builddir}/external.a: ar ${obj}/glad.obj ${obj}/stb_image.obj
 
 ## Framework
 build ${obj}/ib.obj: cc ${sourceDir}/ibo.c
@@ -23,15 +23,15 @@ build ${obj}/shad.obj: cc ${sourceDir}/shader.c
 build ${obj}/textur.obj: cc ${sourceDir}/tex.c
 build ${obj}/va.obj: cc ${sourceDir}/vao.c
 build ${obj}/vb.obj: cc ${sourceDir}/vbo.c
-build ${outDir}/framework.a: ar ${obj}/ib.obj ${obj}/joy.obj ${obj}/keyb.obj ${obj}/mous.obj ${obj}/rend.obj ${obj}/shad.obj ${obj}/textur.obj ${obj}/va.obj ${obj}/vb.obj
+build ${builddir}/framework.a: ar ${obj}/ib.obj ${obj}/joy.obj ${obj}/keyb.obj ${obj}/mous.obj ${obj}/rend.obj ${obj}/shad.obj ${obj}/textur.obj ${obj}/va.obj ${obj}/vb.obj
 
 ## App
 build ${obj}/main.obj: cc ${testSrcDir}/main.c
 
-build ${outDir}/app.a: ar ${obj}/main.obj
-build ${outDir}/app${extension}: link ${outDir}/app.a ${outDir}/framework.a ${outDir}/${platform}.a ${outDir}/external.a
+build ${builddir}/app.a: ar ${obj}/main.obj
+build ${builddir}/app${extension}: link ${builddir}/app.a ${builddir}/framework.a ${builddir}/${platform}.a ${builddir}/external.a
   libs = ${dependentLibs}
 # End of build targets.
 
-build app: phony ${outDir}/app${extension}
+build app: phony ${builddir}/app${extension}
 default app
